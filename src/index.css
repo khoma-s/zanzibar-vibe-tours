@@ -1,1 +1,63 @@
 @import "tailwindcss";
+
+@theme {
+  --color-navy: #1B3A5F;
+  --color-teal: #2AAFB5;
+  --color-orange: #F5A623;
+  --color-cream: #FBF3D5;
+  --color-red: #E63946;
+  --color-white: #FFFFFF;
+  --font-heading: 'Pacifico', cursive;
+  --font-body: 'Inter', sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-cream);
+  color: var(--color-navy);
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+}
+
+/* Lightbox animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-slideIn {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Slider thumbnails */
+.thumbnail-slider {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.thumbnail-slider::-webkit-scrollbar {
+  height: 4px;
+}
+
+.thumbnail-slider::-webkit-scrollbar-track {
+  background: rgba(27, 58, 95, 0.1);
+  border-radius: 2px;
+}
+
+.thumbnail-slider::-webkit-scrollbar-thumb {
+  background: var(--color-teal);
+  border-radius: 2px;
+}

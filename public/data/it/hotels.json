@@ -1,0 +1,20 @@
+[
+  {
+    "hotel_id": "hotel_01",
+    "name": "Zanzibar Beach Resort",
+    "imgs": ["/images/hotels/hotel_01/1.jpg", "/images/hotels/hotel_01/2.jpg", "/images/hotels/hotel_01/3.jpg"],
+    "odescription": "Resort 5 stelle sulla spiaggia di Nungwi. Camere con vista oceano, piscina infinity, spa e ristorante con cucina locale e internazionale."
+  },
+  {
+    "hotel_id": "hotel_02",
+    "name": "Stone Town Boutique Hotel",
+    "imgs": ["/images/hotels/hotel_02/1.jpg", "/images/hotels/hotel_02/2.jpg", "/images/hotels/hotel_02/3.jpg"],
+    "odescription": "Hotel boutique nel cuore di Stone Town. Architettura storica swahili, terrazza panoramica sul porto, colazione inclusa con frutta tropicale fresca."
+  },
+  {
+    "hotel_id": "hotel_03",
+    "name": "Paje Ocean Lodge",
+    "imgs": ["/images/hotels/hotel_03/1.jpg", "/images/hotels/hotel_03/2.jpg", "/images/hotels/hotel_03/3.jpg"],
+    "odescription": "Bungalow in legno sulla spiaggia di Paje, ideale per kitesurf. Atmosfera rilassata, bar sulla spiaggia e lezioni di kitesurf incluse."
+  }
+]
