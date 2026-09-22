@@ -1,0 +1,42 @@
+[
+  {
+    "tour_id": "001",
+    "img_title": "/images/tours/001/title.jpg",
+    "imgs": ["/images/tours/001/1.jpg", "/images/tours/001/2.jpg", "/images/tours/001/3.jpg"],
+    "info": "Scopri le spiagge bianche e le acque cristalline di Zanzibar con questo tour guidato. Visiteremo Stone Town, le piantagioni di spezie e le spiagge più belle dell'isola. Un'esperienza indimenticabile tra cultura, natura e relax.",
+    "currency": "EUR",
+    "price": 1500,
+    "title": "Tour Completo di Zanzibar",
+    "short_desc": "3 giorni tra Stone Town, spezie e spiagge paradisiache"
+  },
+  {
+    "tour_id": "002",
+    "img_title": "/images/tours/002/title.jpg",
+    "imgs": ["/images/tours/002/1.jpg", "/images/tours/002/2.jpg", "/images/tours/002/3.jpg"],
+    "info": "Un'avventura indimenticabile sulle acque turchesi dell'Oceano Indiano. Snorkeling tra i coralli colorati, delfini e tartarughe marine. Include pranzo tipico su un'isola deserta.",
+    "currency": "EUR",
+    "price": 850,
+    "title": "Snorkeling & Isola Deserta",
+    "short_desc": "Giornata di snorkeling e relax su un'isola privata"
+  },
+  {
+    "tour_id": "003",
+    "img_title": "/images/tours/003/title.jpg",
+    "imgs": ["/images/tours/003/1.jpg", "/images/tours/003/2.jpg", "/images/tours/003/3.jpg"],
+    "info": "Immergiti nella cultura swahili visitando Stone Town, patrimonio UNESCO. Passeggiate nei vicoli storici, mercati delle spezie, la casa natale di Freddie Mercury e il palazzo del Sultano.",
+    "currency": "EUR",
+    "price": 450,
+    "title": "Stone Town Culturale",
+    "short_desc": "Tour culturale nel cuore storico di Zanzibar"
+  },
+  {
+    "tour_id": "004",
+    "img_title": "/images/tours/004/title.jpg",
+    "imgs": ["/images/tours/004/1.jpg", "/images/tours/004/2.jpg", "/images/tours/004/3.jpg"],
+    "info": "Goditi un tramonto magico su un tradizionale dhow swahili. Champagne, musica dal vivo e cena a base di pesce fresco appena pescato. L'esperienza più romantica di Zanzibar.",
+    "currency": "EUR",
+    "price": 1200,
+    "title": "Sunset Dhow Cruise",
+    "short_desc": "Crociera romantica al tramonto con cena a bordo"
+  }
+]

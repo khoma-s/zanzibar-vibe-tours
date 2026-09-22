@@ -1,0 +1,15 @@
+{
+  "albumsEnabled": false,
+  "photos": [
+    "/images/gallery/photo1.jpg",
+    "/images/gallery/photo2.jpg",
+    "/images/gallery/photo3.jpg",
+    "/images/gallery/photo4.jpg",
+    "/images/gallery/photo5.jpg",
+    "/images/gallery/photo6.jpg"
+  ],
+  "videos": [
+    "/images/vid/video1.mp4"
+  ],
+  "albums": []
+}
