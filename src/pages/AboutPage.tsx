@@ -8,15 +8,15 @@ interface AboutData {
   history: string;
   email: string;
   phone: string;
-  about_photos_path: string;
-  about_photos: string[];
+  moments_photos_path: string;
+  moments_photos: string[];
 }
 
 export default function AboutPage() {
   const { lang, t } = useLang();
   const [data, setData] = useState<AboutData | null>(null);
   const [activeSlide, setActiveSlide] = useState(0);
-  const lightbox = useLightbox(data?.about_photos || []);
+  const lightbox = useLightbox(data?.moments_photos || []);
 
   useEffect(() => {
     fetch(`/data/${lang}/about.json`)
@@ -29,7 +29,7 @@ export default function AboutPage() {
     // Auto-slide
     if (!data) return;
     const interval = setInterval(() => {
-      setActiveSlide(prev => (prev + 1) % data.about_photos.length);
+      setActiveSlide(prev => (prev + 1) % data.moments_photos.length);
     }, 5000);
     return () => clearInterval(interval);
   }, [data]);
@@ -38,7 +38,7 @@ export default function AboutPage() {
     return <Loading />;
   }
 
-  const photos = data.about_photos;
+  const photos = data.moments_photos;
 
   const nextSlide = () => setActiveSlide(prev => (prev + 1) % photos.length);
   const prevSlide = () => setActiveSlide(prev => (prev - 1 + photos.length) % photos.length);

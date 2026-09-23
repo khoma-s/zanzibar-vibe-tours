@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLang } from '../context/LangContext';
 import { Menu, X, Globe } from 'lucide-react';
-import Logo from './Logo';
 
 const navItems = [
   { key: 'home', pathIt: '/it/', pathPl: '/pl/' },
@@ -59,7 +58,14 @@ export default function Header() {
           
           {/* Logo */}
           <Link to={lang === 'it' ? '/it/' : '/pl/'} className="flex items-center group">
-            <Logo size={44} variant="light" />
+            <img 
+              src="/images/logo.png" 
+              alt="Zanzibar Vibe Tours" 
+              className="w-11 h-11 sm:w-12 sm:h-12 rounded-full object-cover"
+              onError={(e) => {
+                (e.target as HTMLImageElement).style.display = 'none';
+              }}
+            />
             <div className="hidden sm:block ml-2">
               <span className="text-white/40 text-[10px] uppercase tracking-widest">
                 {lang === 'it' ? 'Esperienze autentiche' : 'Autentyczne doświadczenia'}
