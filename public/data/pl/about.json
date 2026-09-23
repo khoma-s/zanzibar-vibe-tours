@@ -2,12 +2,12 @@
   "history": "Zanzibar Vibe Tours powstał z pasji do tej cudownej wyspy i chęci pokazania jej włoskim i polskim podróżnikom. Założona w 2020 roku, nasza agencja oferuje spersonalizowane wycieczki, autentyczne eskursje i ciągłą pomoc podczas całego pobytu. Znamy każdy zakątek Zanzibaru i chcemy podzielić się tą magią z Wami.",
   "email": "info@zanzibarvibetours.com",
   "phone": "+255 777 123 456",
-  "about_photos_path": "/images/about/",
-  "about_photos": [
-    "/images/about/photo1.jpg",
-    "/images/about/photo2.jpg",
-    "/images/about/photo3.jpg",
-    "/images/about/photo4.jpg",
-    "/images/about/photo5.jpg"
+  "moments_photos_path": "/images/moments/",
+  "moments_photos": [
+    "/images/moments/photo1.jpg",
+    "/images/moments/photo2.jpg",
+    "/images/moments/photo3.jpg",
+    "/images/moments/photo4.jpg",
+    "/images/moments/photo5.jpg"
   ]
 }

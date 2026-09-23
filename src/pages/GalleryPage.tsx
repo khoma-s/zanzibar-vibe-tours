@@ -158,9 +158,6 @@ export default function GalleryPage() {
                       alt={`${lang === 'it' ? 'Foto' : 'Zdjęcie'} ${idx + 1}`}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       loading="lazy"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).src = `https://picsum.photos/600/${idx % 2 === 0 ? '800' : '400'}?random=${idx + 50}`;
-                      }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-navy/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
                       <div className="flex items-center gap-2 text-white">
@@ -187,9 +184,6 @@ export default function GalleryPage() {
                       alt={`${lang === 'it' ? 'Foto' : 'Zdjęcie'} ${idx + 1}`}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       loading="lazy"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).src = `https://picsum.photos/400/400?random=${idx + 50}`;
-                      }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-navy/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
                       <div className="flex items-center gap-2 text-white">
@@ -225,7 +219,6 @@ export default function GalleryPage() {
                       controls
                       className="w-full aspect-video bg-black"
                       preload="metadata"
-                      poster={`https://picsum.photos/800/450?random=${idx + 100}`}
                     >
                       <source src={video} type="video/mp4" />
                       {lang === 'it' ? 'Il tuo browser non supporta il video.' : 'Twoja przeglądarka nie obsługuje wideo.'}
