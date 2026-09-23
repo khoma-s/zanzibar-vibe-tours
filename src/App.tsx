@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import ScrollToTopButton from './components/ScrollToTopButton';
 import SEO from './components/SEO';
+import TestMode from './components/TestMode';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import { ToursListPage, TourDetailPage } from './pages/ToursPage';
@@ -25,6 +26,7 @@ function Layout({ children, seoTitle, seoDesc }: { children: React.ReactNode; se
       </main>
       <Footer />
       <ScrollToTopButton />
+      <TestMode />
     </div>
   );
 }
