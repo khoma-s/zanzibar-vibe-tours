@@ -28,15 +28,5 @@
     "price": 450,
     "title": "Stone Town Culturale",
     "short_desc": "Tour culturale nel cuore storico di Zanzibar"
-  },
-  {
-    "tour_id": "004",
-    "img_title": "/images/tours/004/title.jpg",
-    "imgs": ["/images/tours/004/1.jpg", "/images/tours/004/2.jpg", "/images/tours/004/3.jpg"],
-    "info": "Goditi un tramonto magico su un tradizionale dhow swahili. Champagne, musica dal vivo e cena a base di pesce fresco appena pescato. L'esperienza più romantica di Zanzibar.",
-    "currency": "EUR",
-    "price": 1200,
-    "title": "Sunset Dhow Cruise",
-    "short_desc": "Crociera romantica al tramonto con cena a bordo"
   }
-]
+  ]
