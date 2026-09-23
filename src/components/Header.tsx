@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLang } from '../context/LangContext';
 import { Menu, X, Globe } from 'lucide-react';
+import Logo from './Logo';
 
 const navItems = [
   { key: 'home', pathIt: '/it/', pathPl: '/pl/' },
@@ -57,23 +58,9 @@ export default function Header() {
         <div className="flex justify-between items-center h-18 sm:h-20">
           
           {/* Logo */}
-          <Link to={lang === 'it' ? '/it/' : '/pl/'} className="flex items-center gap-3 group">
-            <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-teal/40 group-hover:border-teal transition-colors shadow-md">
-              <img 
-                src="/images/logo.png" 
-                alt="Zanzibar Vibe Tours" 
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  // Fallback to emoji if logo not loaded
-                  (e.target as HTMLImageElement).style.display = 'none';
-                  (e.target as HTMLImageElement).parentElement!.innerHTML = '<span class="text-2xl flex items-center justify-center w-full h-full bg-teal/20">🌴</span>';
-                }}
-              />
-            </div>
-            <div className="hidden sm:block">
-              <span className="font-[Pacifico] text-lg sm:text-xl text-teal block leading-tight">
-                Zanzibar Vibe Tours
-              </span>
+          <Link to={lang === 'it' ? '/it/' : '/pl/'} className="flex items-center group">
+            <Logo size={44} variant="light" />
+            <div className="hidden sm:block ml-2">
               <span className="text-white/40 text-[10px] uppercase tracking-widest">
                 {lang === 'it' ? 'Esperienze autentiche' : 'Autentyczne doświadczenia'}
               </span>
