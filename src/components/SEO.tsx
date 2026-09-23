@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useLang } from '../context/LangContext';
+import SchemaMarkup, { organizationSchema } from './SchemaMarkup';
 
 interface SEOProps {
   title?: string;
@@ -28,8 +29,8 @@ export default function SEO({ title, description }: SEOProps) {
         metaDesc.setAttribute('content', description);
       } else {
         metaDesc.setAttribute('content', lang === 'it'
-          ? 'Tour indimenticabili a Zanzibar. Scopri escursioni, hotel, galleria e blog.'
-          : 'Niezapomniane wycieczki na Zanzibarze. Odkryj wycieczki, hotele, galerię i blog.');
+          ? 'Tour indimenticabili a Zanzibar. Scopri escursioni, hotel, galleria e blog. Prenota la tua avventura!'
+          : 'Niezapomniane wycieczki na Zanzibarze. Odkryj wycieczki, hotele, galerię i blog. Zarezerwuj swoją przygodę!');
       }
     }
 
@@ -58,7 +59,23 @@ export default function SEO({ title, description }: SEOProps) {
     // Update html lang
     document.documentElement.lang = lang;
 
+    // Update Open Graph
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    const ogLocale = document.querySelector('meta[property="og:locale"]');
+    
+    if (ogTitle) ogTitle.setAttribute('content', title || 'Zanzibar Vibe Tours');
+    if (ogDesc) ogDesc.setAttribute('content', description || (lang === 'it'
+      ? 'Tour indimenticabili a Zanzibar.'
+      : 'Niezapomniane wycieczki na Zanzibarze.'));
+    if (ogLocale) ogLocale.setAttribute('content', lang === 'it' ? 'it_IT' : 'pl_PL');
+
   }, [lang, location.pathname, title, description]);
 
-  return null;
+  return (
+    <>
+      {/* Organization schema on all pages */}
+      <SchemaMarkup type="Organization" data={organizationSchema} />
+    </>
+  );
 }
