@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLang } from '../context/LangContext';
 import Lightbox, { useLightbox } from '../components/Lightbox';
+import Loading from '../components/Loading';
 import { Mail, Phone, Camera } from 'lucide-react';
 
 interface AboutData {
@@ -25,11 +26,7 @@ export default function AboutPage() {
   }, [lang]);
 
   if (!data) {
-    return (
-      <div className="min-h-[60vh] flex items-center justify-center">
-        <div className="animate-pulse text-navy/50 text-lg">Loading...</div>
-      </div>
-    );
+    return <Loading />;
   }
 
   const photos = data.about_photos;

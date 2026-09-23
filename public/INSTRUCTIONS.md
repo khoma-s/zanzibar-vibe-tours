@@ -1,14 +1,11 @@
 # Zanzibar Vibe Tours — Инструкция по загрузке файлов
 
-## 📸 Как загрузить логотип для проверки цветовой гаммы
+## 📸 Как загрузить логотип
 
-1. Подготовьте файл логотипа в формате **PNG** (рекомендуется 512×512px или больше)
+1. Подготовьте файл логотипа в формате **PNG** (рекомендуется 512×512px)
 2. Сохраните файл как `logo.png`
 3. Поместите в папку: `public/images/logo.png`
-4. Обновите компонент Header.tsx, заменив эмодзи 🌴 на:
-   ```html
-   <img src="/images/logo.png" alt="Zanzibar Vibe Tours" className="w-12 h-12 rounded-full" />
-   ```
+4. Логотип автоматически появится в Header и Footer
 
 ### Favicon
 - `public/images/favicon-32x32.png` — 32×32px
@@ -21,7 +18,10 @@
 
 ```
 public/images/
-├── logo.png              # Логотип компании
+├── logo.png              # Логотип компании (512×512px)
+├── favicon-32x32.png     # Favicon 32×32
+├── favicon-16x16.png     # Favicon 16×16
+├── apple-touch-icon.png  # Apple touch icon 180×180
 ├── about/                # Фото для страницы About (5 штук)
 │   ├── photo1.jpg
 │   ├── photo2.jpg
@@ -121,14 +121,14 @@ public/images/
 
 ## 🎨 Цветовая палитра
 
-| Роль | HEX |
-|------|-----|
-| Navy (основной) | #1B3A5F |
-| Teal (акцент) | #2AAFB5 |
-| Orange (вторичный) | #F5A623 |
-| Cream (фон) | #FBF3D5 |
-| Red (важное) | #E63946 |
-| White | #FFFFFF |
+| Роль | HEX | Использование |
+|------|-----|---------------|
+| Navy (основной) | #1B3A5F | Header, footer, основной текст |
+| Teal (акцент) | #2AAFB5 | Ссылки, кнопки, акценты |
+| Orange (вторичный) | #F5A623 | CTA, hover, цены |
+| Cream (фон) | #FBF3D5 | Основной фон страниц |
+| Red (важное) | #E63946 | Предупреждения, важное |
+| White | #FFFFFF | Текст на тёмном фоне |
 
 ---
 
@@ -143,3 +143,21 @@ public/images/
 | Галерея | /it/galleria | /pl/galeria |
 | Блог | /it/blog | /pl/blog |
 | About | /it/chi-siamo | /pl/o-nas |
+
+---
+
+## 🔧 SEO
+
+- `robots.txt` — в корне сайта
+- `sitemap.xml` — в корне сайта с hreflang тегами
+- Meta-теги обновляются динамически через компонент SEO
+- Matomo analytics — подключён в index.html (замените YOUR_MATOMO_DOMAIN и YOUR_SITE_ID)
+
+---
+
+## 🚀 Деплой
+
+1. Запустите `npm run build`
+2. Скопируйте содержимое `dist/` на сервер vh.pl
+3. Убедитесь, что все изображения загружены в `public/images/`
+4. Проверьте работу Matomo (замените placeholder в index.html)

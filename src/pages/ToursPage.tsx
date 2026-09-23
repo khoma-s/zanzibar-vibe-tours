@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useLang } from '../context/LangContext';
 import Lightbox, { useLightbox } from '../components/Lightbox';
+import Loading from '../components/Loading';
 import { ArrowLeft, MapPin } from 'lucide-react';
 
 interface Tour {
@@ -91,11 +92,7 @@ export function TourDetailPage() {
   }, [lang, tour_id]);
 
   if (!tour) {
-    return (
-      <div className="min-h-[60vh] flex items-center justify-center pt-24">
-        <div className="animate-pulse text-navy/50 text-lg">Loading...</div>
-      </div>
-    );
+    return <Loading />;
   }
 
   const currencySymbol = lang === 'it' ? '€' : 'zł';

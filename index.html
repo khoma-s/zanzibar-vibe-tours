@@ -3,17 +3,71 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zanzibar Vibe Tours — Scopri Zanzibar</title>
-    <meta name="description" content="Zanzibar Vibe Tours — Tour indimenticabili a Zanzibar. Scopri le nostre escursioni, hotel e galleria." />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Zanzibar Vibe Tours — Scopri la magia di Zanzibar</title>
+    <meta name="description" content="Zanzibar Vibe Tours — Tour indimenticabili a Zanzibar. Scopri le nostre escursioni, hotel, galleria e blog. Prenota la tua avventura!" />
+    <meta name="keywords" content="Zanzibar, tours, hotel, viaggi, Tanzania, Stone Town, snorkeling, spiagge, wycieczka, hotele" />
+    <meta name="author" content="Zanzibar Vibe Tours" />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Zanzibar Vibe Tours" />
+    <meta property="og:description" content="Tour indimenticabili a Zanzibar. Scopri escursioni, hotel e molto altro." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="it_IT" />
+    <meta property="og:locale:alternate" content="pl_PL" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Hreflang (will be updated dynamically by React) -->
+    <link rel="alternate" hreflang="it" href="https://zanzibarvibetours.com/it/" />
+    <link rel="alternate" hreflang="pl" href="https://zanzibarvibetours.com/pl/" />
+    <link rel="alternate" hreflang="x-default" href="https://zanzibarvibetours.com/it/" />
+    <link rel="canonical" href="https://zanzibarvibetours.com/it/" />
+    
     <style>
       html, body { margin: 0; padding: 0; width: 100%; height: 100%; }
+      /* Prevent FOUC */
+      #root { min-height: 100vh; }
+      .initial-loader {
+        position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
+        background-color: #FBF3D5; z-index: 99999; transition: opacity 0.3s;
+      }
+      .initial-loader.hidden { opacity: 0; pointer-events: none; }
+      .initial-loader .spinner {
+        width: 48px; height: 48px; border: 4px solid #2AAFB5; border-top-color: transparent;
+        border-radius: 50%; animation: spin 0.8s linear infinite;
+      }
+      @keyframes spin { to { transform: rotate(360deg); } }
     </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div class="initial-loader" id="initialLoader">
+        <div class="spinner"></div>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Matomo Tracking Code (placeholder — replace with actual domain/ID) -->
+    <script>
+      var _paq = window._paq = window._paq || [];
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u = "https://YOUR_MATOMO_DOMAIN.pl/"; // TODO: Replace with actual Matomo URL on vh.pl
+        _paq.push(['setTrackerUrl', u + 'matomo.php']);
+        _paq.push(['setSiteId', 'YOUR_SITE_ID']); // TODO: Replace with actual site ID
+        var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+        g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+      })();
+    </script>
+    <!-- End Matomo Code -->
   </body>
 </html>
