@@ -88,9 +88,6 @@ export default function AboutPage() {
               alt="Founder" 
               className="w-full h-full object-cover rounded-xl"
               style={{ maxHeight: '400px' }}
-              onError={(e) => {
-                (e.target as HTMLImageElement).src = 'https://picsum.photos/400/400?random=founder';
-              }}
             />
           </div>
         </div>
@@ -132,9 +129,6 @@ export default function AboutPage() {
                 src={photos[activeSlide]}
                 alt={`About photo ${activeSlide + 1}`}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = `https://picsum.photos/1200/675?random=${activeSlide + 20}`;
-                }}
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center">
                 <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 text-navy px-4 py-2 rounded-full font-semibold text-sm">
@@ -179,9 +173,6 @@ export default function AboutPage() {
                   src={photo}
                   alt={`Thumbnail ${index + 1}`}
                   className="w-full h-full object-cover"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = `https://picsum.photos/200/200?random=${index + 30}`;
-                  }}
                 />
               </button>
             ))}
