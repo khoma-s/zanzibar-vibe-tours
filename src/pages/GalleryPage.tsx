@@ -21,11 +21,47 @@ export default function GalleryPage() {
   const lightbox = useLightbox(data?.photos || []);
 
   useEffect(() => {
+    // Fetch gallery config
     fetch(`/data/${lang}/gallery.json`)
       .then(r => r.json())
-      .then(setData)
+      .then(async (config: GalleryData) => {
+        // Dynamically fetch all images from gallery folder
+        const photoFiles = await fetchDirectoryFiles('/images/gallery/', ['jpg', 'jpeg', 'png', 'webp']);
+        const videoFiles = await fetchDirectoryFiles('/images/vid/', ['mp4', 'webm']);
+        
+        setData({
+          ...config,
+          photos: photoFiles,
+          videos: videoFiles,
+        });
+      })
       .catch(() => {});
   }, [lang]);
+
+  // Helper function to fetch directory files (simulated - in production, this would be a server endpoint)
+  const fetchDirectoryFiles = async (basePath: string, extensions: string[]): Promise<string[]> => {
+    // Since we can't directly list directory contents in browser,
+    // we'll try to fetch common file names
+    const files: string[] = [];
+    
+    // Try to fetch up to 50 files
+    for (let i = 1; i <= 50; i++) {
+      for (const ext of extensions) {
+        const fileName = `${basePath}photo${i}.${ext}`;
+        try {
+          const response = await fetch(fileName, { method: 'HEAD' });
+          if (response.ok) {
+            files.push(fileName);
+            break; // Found this file, move to next number
+          }
+        } catch {
+          // File doesn't exist, continue
+        }
+      }
+    }
+    
+    return files;
+  };
 
   if (!data) {
     return <Loading />;
@@ -256,19 +292,6 @@ export default function GalleryPage() {
         {/* 
           albumsEnabled: false
           TODO: Implement album functionality when ready
-          Structure planned:
-          {
-            "albums": [
-              {
-                "album_id": "alb_01",
-                "title": { "it": "Spiagge", "pl": "Plaże" },
-                "cover": "/images/albums/alb_01/cover.jpg",
-                "photos": ["/images/albums/alb_01/1.jpg", ...]
-              }
-            ]
-          }
-          When albumsEnabled becomes true, render album cards with cover images
-          that open a filtered lightbox showing only that album's photos.
         */}
       </div>
 
