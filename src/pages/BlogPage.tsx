@@ -1,73 +1,292 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useLang } from '../context/LangContext';
-import { BookOpen, X } from 'lucide-react';
+import Loading from '../components/Loading';
+import { BookOpen, X, Search, Calendar, Tag, ChevronRight, Clock } from 'lucide-react';
 
 interface Post {
   post_id: string;
   title: string;
   text: string;
+  category?: string;
+  date?: string;
+  read_time?: number;
 }
 
 export default function BlogPage() {
   const { lang, t } = useLang();
   const [posts, setPosts] = useState<Post[]>([]);
   const [selectedPost, setSelectedPost] = useState<Post | null>(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
   useEffect(() => {
     fetch(`/data/${lang}/posts.json`)
       .then(r => r.json())
-      .then(setPosts)
+      .then((data: Post[]) => {
+        // Add default categories and dates if missing
+        const enriched = data.map((post, idx) => ({
+          ...post,
+          category: post.category || (lang === 'it' ? 'Consigli' : 'Porady'),
+          date: post.date || new Date(2026, 0, idx + 1).toISOString().split('T')[0],
+          read_time: post.read_time || Math.max(2, Math.ceil(post.text.length / 500)),
+        }));
+        setPosts(enriched);
+      })
       .catch(() => {});
   }, [lang]);
 
+  // Get unique categories
+  const categories = useMemo(() => {
+    const cats = new Set(posts.map(p => p.category).filter((c): c is string => Boolean(c)));
+    return ['all', ...Array.from(cats)];
+  }, [posts]);
+
+  // Filter posts
+  const filteredPosts = useMemo(() => {
+    return posts.filter(post => {
+      const matchesSearch = !searchQuery || 
+        post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        post.text.toLowerCase().includes(searchQuery.toLowerCase());
+      const matchesCategory = selectedCategory === 'all' || post.category === selectedCategory;
+      return matchesSearch && matchesCategory;
+    });
+  }, [posts, searchQuery, selectedCategory]);
+
+  // Format date
+  const formatDate = (dateStr: string) => {
+    const date = new Date(dateStr);
+    return date.toLocaleDateString(lang === 'it' ? 'it-IT' : 'pl-PL', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+  };
+
+  // Category colors
+  const getCategoryColor = (category: string) => {
+    const colors: Record<string, string> = {
+      'Consigli': 'bg-teal/10 text-teal',
+      'Porady': 'bg-teal/10 text-teal',
+      'Cultura': 'bg-orange/10 text-orange',
+      'Kultura': 'bg-orange/10 text-orange',
+      'Natura': 'bg-green-100 text-green-700',
+      'Aventures': 'bg-purple-100 text-purple-700',
+      'Przygody': 'bg-purple-100 text-purple-700',
+    };
+    return colors[category] || 'bg-navy/10 text-navy/70';
+  };
+
+  if (posts.length === 0) {
+    return <Loading />;
+  }
+
   return (
     <div className="pt-24 pb-16">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center mb-8">
           <h1 className="font-[Pacifico] text-4xl sm:text-5xl text-navy mb-4 flex items-center justify-center gap-3">
             <BookOpen className="text-teal" size={40} />
             {t('blog')}
           </h1>
-          <div className="w-24 h-1 bg-orange mx-auto rounded-full" />
+          <div className="w-24 h-1 bg-orange mx-auto rounded-full mb-4" />
+          <p className="text-navy/60 max-w-2xl mx-auto">
+            {lang === 'it'
+              ? 'Storie, consigli e ispirazioni per il tuo viaggio a Zanzibar.'
+              : 'Historie, porady i inspiracje dla Twojej podróży na Zanzibar.'}
+          </p>
         </div>
 
-        <div className="space-y-4">
-          {posts.map((post) => (
-            <button
-              key={post.post_id}
-              onClick={() => setSelectedPost(post)}
-              className="w-full text-left bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 border-l-4 border-teal group"
-            >
-              <h3 className="font-[Inter] font-bold text-lg text-navy group-hover:text-teal transition-colors">
-                {post.title}
-              </h3>
-              <span className="text-teal text-sm font-semibold mt-2 inline-block">
-                {t('read_more')} →
-              </span>
-            </button>
-          ))}
+        {/* Search & Filters */}
+        <div className="bg-white rounded-xl shadow-sm p-4 mb-8 space-y-4">
+          {/* Search */}
+          <div className="relative">
+            <Search size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-navy/30" />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder={lang === 'it' ? 'Cerca articoli...' : 'Szukaj artykułów...'}
+              className="w-full pl-10 pr-4 py-2.5 bg-cream/50 border border-navy/10 rounded-lg text-sm text-navy placeholder:text-navy/30 focus:outline-none focus:border-teal transition-colors"
+            />
+          </div>
+
+          {/* Categories */}
+          <div className="flex flex-wrap gap-2">
+            {categories.map(cat => (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat as string)}
+                className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${
+                  selectedCategory === cat
+                    ? 'bg-teal text-white shadow-sm'
+                    : 'bg-cream/50 text-navy/60 hover:bg-cream hover:text-navy'
+                }`}
+              >
+                {cat === 'all' ? (lang === 'it' ? 'Tutti' : 'Wszystkie') : cat}
+              </button>
+            ))}
+          </div>
         </div>
+
+        {/* Posts List */}
+        {filteredPosts.length > 0 ? (
+          <div className="space-y-4">
+            {filteredPosts.map((post, idx) => (
+              <button
+                key={post.post_id}
+                onClick={() => setSelectedPost(post)}
+                className="w-full text-left bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden group"
+                style={{ animationDelay: `${idx * 50}ms` }}
+              >
+                <div className="flex flex-col sm:flex-row">
+                  {/* Decorative side */}
+                  <div className="sm:w-2 w-full h-1 sm:h-auto bg-gradient-to-b from-teal to-orange flex-shrink-0" />
+                  
+                  <div className="flex-1 p-6">
+                    {/* Meta */}
+                    <div className="flex flex-wrap items-center gap-3 mb-3">
+                      {post.category && (
+                        <span className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold ${getCategoryColor(post.category)}`}>
+                          <Tag size={10} />
+                          {post.category}
+                        </span>
+                      )}
+                      {post.date && (
+                        <span className="flex items-center gap-1 text-xs text-navy/40">
+                          <Calendar size={11} />
+                          {formatDate(post.date)}
+                        </span>
+                      )}
+                      {post.read_time && (
+                        <span className="flex items-center gap-1 text-xs text-navy/40">
+                          <Clock size={11} />
+                          {post.read_time} {lang === 'it' ? 'min' : 'min'}
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="font-[Inter] font-bold text-lg text-navy mb-2 group-hover:text-teal transition-colors">
+                      {post.title}
+                    </h3>
+
+                    {/* Preview */}
+                    <p className="text-navy/50 text-sm line-clamp-2 mb-3">
+                      {post.text.substring(0, 150)}...
+                    </p>
+
+                    {/* Read more */}
+                    <span className="inline-flex items-center gap-1 text-teal text-sm font-semibold group-hover:gap-2 transition-all">
+                      {t('read_more')}
+                      <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                    </span>
+                  </div>
+                </div>
+              </button>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-16">
+            <div className="text-6xl mb-4">🔍</div>
+            <p className="text-navy/50">
+              {lang === 'it' ? 'Nessun articolo trovato' : 'Nie znaleziono artykułów'}
+            </p>
+          </div>
+        )}
+
+        {/* Results count */}
+        {searchQuery && (
+          <div className="text-center mt-6 text-sm text-navy/40">
+            {filteredPosts.length} {lang === 'it' ? 'risultati per' : 'wyników dla'} "{searchQuery}"
+          </div>
+        )}
       </div>
 
       {/* Post Modal */}
       {selectedPost && (
-        <div className="fixed inset-0 z-[9999] bg-black/60 flex items-center justify-center p-4 animate-fadeIn" onClick={() => setSelectedPost(null)}>
+        <div 
+          className="fixed inset-0 z-[9999] bg-black/60 flex items-center justify-center p-4 animate-fadeIn"
+          onClick={() => setSelectedPost(null)}
+        >
           <div
-            className="bg-white rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-8 relative animate-slideIn"
+            className="bg-white rounded-2xl max-w-3xl w-full max-h-[85vh] overflow-hidden flex flex-col animate-slideIn shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <button
-              className="absolute top-4 right-4 text-navy/40 hover:text-navy p-1"
-              onClick={() => setSelectedPost(null)}
-            >
-              <X size={24} />
-            </button>
-            <h2 className="font-[Pacifico] text-2xl sm:text-3xl text-navy mb-6 pr-8">
-              {selectedPost.title}
-            </h2>
-            <p className="text-navy/80 leading-relaxed text-base whitespace-pre-line">
-              {selectedPost.text}
-            </p>
+            {/* Modal Header */}
+            <div className="bg-gradient-to-r from-navy to-teal/80 p-6 relative flex-shrink-0">
+              <button
+                className="absolute top-4 right-4 text-white/60 hover:text-white p-1 rounded-full hover:bg-white/10 transition-all"
+                onClick={() => setSelectedPost(null)}
+                aria-label={t('close')}
+              >
+                <X size={24} />
+              </button>
+              
+              {/* Meta */}
+              <div className="flex flex-wrap items-center gap-3 mb-3">
+                {selectedPost.category && (
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-white/20 text-white">
+                    <Tag size={10} />
+                    {selectedPost.category}
+                  </span>
+                )}
+                {selectedPost.date && (
+                  <span className="flex items-center gap-1 text-xs text-cream/70">
+                    <Calendar size={11} />
+                    {formatDate(selectedPost.date)}
+                  </span>
+                )}
+                {selectedPost.read_time && (
+                  <span className="flex items-center gap-1 text-xs text-cream/70">
+                    <Clock size={11} />
+                    {selectedPost.read_time} {lang === 'it' ? 'min di lettura' : 'min czytania'}
+                  </span>
+                )}
+              </div>
+
+              {/* Title */}
+              <h2 className="font-[Pacifico] text-2xl sm:text-3xl text-white pr-8">
+                {selectedPost.title}
+              </h2>
+            </div>
+
+            {/* Modal Content */}
+            <div className="overflow-y-auto flex-1 p-6 sm:p-8">
+              <div className="prose prose-sm max-w-none">
+                <p className="text-navy/80 leading-relaxed text-base whitespace-pre-line">
+                  {selectedPost.text}
+                </p>
+              </div>
+
+              {/* Tags / Share */}
+              <div className="mt-8 pt-6 border-t border-navy/10 flex flex-wrap items-center justify-between gap-4">
+                <div className="flex items-center gap-2">
+                  <span className="text-xs text-navy/40 uppercase tracking-wider font-semibold">
+                    {lang === 'it' ? 'Categoria:' : 'Kategoria:'}
+                  </span>
+                  <span className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold ${getCategoryColor(selectedPost.category || '')}`}>
+                    {selectedPost.category}
+                  </span>
+                </div>
+                
+                <div className="flex items-center gap-2">
+                  <span className="text-xs text-navy/40">
+                    {lang === 'it' ? 'Condividi:' : 'Udostępnij:'}
+                  </span>
+                  <button className="w-8 h-8 rounded-full bg-navy/5 hover:bg-teal/10 flex items-center justify-center text-navy/40 hover:text-teal transition-all">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                    </svg>
+                  </button>
+                  <button className="w-8 h-8 rounded-full bg-navy/5 hover:bg-teal/10 flex items-center justify-center text-navy/40 hover:text-teal transition-all">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.958.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )}
