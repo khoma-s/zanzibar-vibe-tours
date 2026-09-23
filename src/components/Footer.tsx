@@ -80,34 +80,25 @@ export default function Footer() {
           </div>
 
           {/* Navigation */}
-          <div>
+          <div className="text-right">
             <h4 className="text-orange font-bold uppercase text-xs tracking-wider mb-5 font-[Inter]">
               {lang === 'it' ? 'Navigazione' : 'Nawigacja'}
             </h4>
             <ul className="space-y-2.5">
-              <li><Link to={lang === 'it' ? '/it/tour' : '/pl/wycieczka'} className="text-cream/60 hover:text-teal text-sm transition-colors flex items-center gap-1.5 group"><ArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity -ml-4 group-hover:ml-0" />{t('tours')}</Link></li>
-              <li><Link to={lang === 'it' ? '/it/hotel' : '/pl/hotel'} className="text-cream/60 hover:text-teal text-sm transition-colors flex items-center gap-1.5 group"><ArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity -ml-4 group-hover:ml-0" />{t('hotels')}</Link></li>
-              <li><Link to={lang === 'it' ? '/it/galleria' : '/pl/galeria'} className="text-cream/60 hover:text-teal text-sm transition-colors flex items-center gap-1.5 group"><ArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity -ml-4 group-hover:ml-0" />{t('gallery')}</Link></li>
-              <li><Link to={lang === 'it' ? '/it/blog' : '/pl/blog'} className="text-cream/60 hover:text-teal text-sm transition-colors flex items-center gap-1.5 group"><ArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity -ml-4 group-hover:ml-0" />{t('blog')}</Link></li>
-              <li><Link to={lang === 'it' ? '/it/chi-siamo' : '/pl/o-nas'} className="text-cream/60 hover:text-teal text-sm transition-colors flex items-center gap-1.5 group"><ArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity -ml-4 group-hover:ml-0" />{t('about')}</Link></li>
+              <li><Link to={lang === 'it' ? '/it/tour' : '/pl/wycieczka'} className="text-cream/60 hover:text-teal text-sm transition-colors flex items-center gap-1.5 group justify-end"><ArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />{t('tours')}</Link></li>
+              <li><Link to={lang === 'it' ? '/it/hotel' : '/pl/hotel'} className="text-cream/60 hover:text-teal text-sm transition-colors flex items-center gap-1.5 group justify-end"><ArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />{t('hotels')}</Link></li>
+              <li><Link to={lang === 'it' ? '/it/galleria' : '/pl/galeria'} className="text-cream/60 hover:text-teal text-sm transition-colors flex items-center gap-1.5 group justify-end"><ArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />{t('gallery')}</Link></li>
+              <li><Link to={lang === 'it' ? '/it/blog' : '/pl/blog'} className="text-cream/60 hover:text-teal text-sm transition-colors flex items-center gap-1.5 group justify-end"><ArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />{t('blog')}</Link></li>
+              <li><Link to={lang === 'it' ? '/it/chi-siamo' : '/pl/o-nas'} className="text-cream/60 hover:text-teal text-sm transition-colors flex items-center gap-1.5 group justify-end"><ArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />{t('about')}</Link></li>
             </ul>
           </div>
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-white/8 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="border-t border-white/8 pt-6 text-center">
           <p className="text-cream/40 text-xs">
             © 2026 Zanzibar Vibe Tours. {t('all_rights')}.
           </p>
-          <div className="flex items-center gap-4 text-cream/30 text-xs">
-            <a href="#" className="hover:text-teal transition-colors">
-              {lang === 'it' ? 'Privacy Policy' : 'Polityka prywatności'}
-            </a>
-            <span>|</span>
-            <a href="#" className="hover:text-teal transition-colors">
-              Cookie
-            </a>
-          </div>
         </div>
       </div>
     </footer>

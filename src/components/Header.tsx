@@ -59,18 +59,10 @@ export default function Header() {
           {/* Logo */}
           <Link to={lang === 'it' ? '/it/' : '/pl/'} className="flex items-center group">
             <img 
-              src="/images/logo.png" 
+              src="/images/logo_in_line.png" 
               alt="Zanzibar Vibe Tours" 
-              className="w-11 h-11 sm:w-12 sm:h-12 rounded-full object-cover"
-              onError={(e) => {
-                (e.target as HTMLImageElement).style.display = 'none';
-              }}
+              className="h-10 sm:h-12 w-auto object-contain"
             />
-            <div className="hidden sm:block ml-2">
-              <span className="text-white/40 text-[10px] uppercase tracking-widest">
-                {lang === 'it' ? 'Esperienze autentiche' : 'Autentyczne doświadczenia'}
-              </span>
-            </div>
           </Link>
 
           {/* Desktop Nav */}
