@@ -160,13 +160,207 @@ html {
 }
 
 /* =========================================
-   RESPONSIVE TEXT
+   RESPONSIVE BREAKPOINTS
    ========================================= */
-@media (max-width: 640px) {
-  h1 {
-    font-size: 2rem;
+
+/* Mobile S: 320px - 374px */
+@media (max-width: 374px) {
+  .container {
+    padding-left: 12px;
+    padding-right: 12px;
   }
+  
+  h1 {
+    font-size: 1.75rem !important;
+  }
+  
   h2 {
-    font-size: 1.5rem;
+    font-size: 1.375rem !important;
+  }
+  
+  h3 {
+    font-size: 1.125rem !important;
+  }
+}
+
+/* Mobile M: 375px - 424px */
+@media (min-width: 375px) and (max-width: 424px) {
+  h1 {
+    font-size: 2rem !important;
+  }
+}
+
+/* Mobile L: 425px - 767px */
+@media (min-width: 425px) and (max-width: 767px) {
+  h1 {
+    font-size: 2.25rem !important;
+  }
+}
+
+/* Tablet: 768px - 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+/* Laptop: 1024px - 1439px */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+/* Desktop: 1440px+ */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+/* 4K: 2560px+ */
+@media (min-width: 2560px) {
+  html {
+    font-size: 18px;
+  }
+  
+  .container {
+    max-width: 1600px;
+  }
+}
+
+/* =========================================
+   PRINT STYLES
+   ========================================= */
+@media print {
+  .site-header,
+  .site-footer,
+  .scroll-to-top-button,
+  .test-mode-button {
+    display: none !important;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+  
+  a {
+    text-decoration: underline;
+  }
+  
+  img {
+    max-width: 100%;
+    page-break-inside: avoid;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+   ========================================= */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =========================================
+   HIGH CONTRAST MODE
+   ========================================= */
+@media (prefers-contrast: high) {
+  :root {
+    --color-navy: #000000;
+    --color-teal: #0066cc;
+    --color-orange: #ff6600;
+    --color-cream: #ffffff;
+  }
+  
+  a {
+    text-decoration: underline;
+  }
+  
+  button,
+  .btn {
+    border: 2px solid currentColor;
+  }
+}
+
+/* =========================================
+   DARK MODE (Future Enhancement)
+   ========================================= */
+@media (prefers-color-scheme: dark) {
+  /* Uncomment to enable dark mode
+  :root {
+    --color-navy: #e0e0e0;
+    --color-teal: #4dd0e1;
+    --color-orange: #ffb74d;
+    --color-cream: #1a1a1a;
+    --color-white: #ffffff;
+  }
+  
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-navy);
+  }
+  */
+}
+
+/* =========================================
+   TOUCH DEVICE OPTIMIZATIONS
+   ========================================= */
+@media (hover: none) and (pointer: coarse) {
+  /* Increase tap targets on touch devices */
+  button,
+  a,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Disable hover effects on touch */
+  .group:hover .group-hover\:scale-110 {
+    transform: none;
+  }
+  
+  /* Show hover states on focus for keyboard navigation */
+  .group:focus-within .group-hover\:opacity-100 {
+    opacity: 1;
+  }
+}
+
+/* =========================================
+   LANDSCAPE ORIENTATION
+   ========================================= */
+@media (orientation: landscape) and (max-height: 500px) {
+  .hero-section {
+    min-height: auto;
+    padding-top: 80px;
+    padding-bottom: 40px;
+  }
+  
+  .site-header {
+    height: 60px;
+  }
+}
+
+/* =========================================
+   SAFE AREA (iPhone X+)
+   ========================================= */
+@supports (padding: max(0px)) {
+  .site-header {
+    padding-top: max(0px, env(safe-area-inset-top));
+  }
+  
+  .site-footer {
+    padding-bottom: max(0px, env(safe-area-inset-bottom));
+  }
+  
+  .scroll-to-top-button {
+    bottom: max(24px, env(safe-area-inset-bottom));
   }
 }
