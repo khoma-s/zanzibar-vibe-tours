@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLang } from '../context/LangContext';
 import Lightbox, { useLightbox } from '../components/Lightbox';
+import Loading from '../components/Loading';
 import { Camera, Play } from 'lucide-react';
 
 interface GalleryData {
@@ -23,11 +24,7 @@ export default function GalleryPage() {
   }, [lang]);
 
   if (!data) {
-    return (
-      <div className="min-h-[60vh] flex items-center justify-center pt-24">
-        <div className="animate-pulse text-navy/50 text-lg">Loading...</div>
-      </div>
-    );
+    return <Loading />;
   }
 
   return (

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Italian Pages -->
+  <url>
+    <loc>https://zanzibarvibetours.com/it/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibarvibetours.com/it/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibarvibetours.com/pl/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zanzibarvibetours.com/it/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://zanzibarvibetours.com/it/tour</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibarvibetours.com/it/tour" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibarvibetours.com/pl/wycieczka" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://zanzibarvibetours.com/it/hotel</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibarvibetours.com/it/hotel" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibarvibetours.com/pl/hotel" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanzibarvibetours.com/it/galleria</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibarvibetours.com/it/galleria" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibarvibetours.com/pl/galeria" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://zanzibarvibetours.com/it/blog</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibarvibetours.com/it/blog" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibarvibetours.com/pl/blog" />
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://zanzibarvibetours.com/it/chi-siamo</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibarvibetours.com/it/chi-siamo" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibarvibetours.com/pl/o-nas" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Polish Pages -->
+  <url>
+    <loc>https://zanzibarvibetours.com/pl/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibarvibetours.com/it/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibarvibetours.com/pl/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zanzibarvibetours.com/it/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://zanzibarvibetours.com/pl/wycieczka</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibarvibetours.com/it/tour" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibarvibetours.com/pl/wycieczka" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://zanzibarvibetours.com/pl/hotel</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibarvibetours.com/it/hotel" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibarvibetours.com/pl/hotel" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zanzibarvibetours.com/pl/galeria</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibarvibetours.com/it/galleria" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibarvibetours.com/pl/galeria" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://zanzibarvibetours.com/pl/blog</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibarvibetours.com/it/blog" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibarvibetours.com/pl/blog" />
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://zanzibarvibetours.com/pl/o-nas</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibarvibetours.com/it/chi-siamo" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibarvibetours.com/pl/o-nas" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>

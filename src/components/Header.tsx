@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLang } from '../context/LangContext';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Globe } from 'lucide-react';
 
 const navItems = [
   { key: 'home', pathIt: '/it/', pathPl: '/pl/' },
@@ -16,6 +16,7 @@ export default function Header() {
   const { lang, setLang, t } = useLang();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [langDropdown, setLangDropdown] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -26,106 +27,168 @@ export default function Header() {
 
   useEffect(() => {
     setMenuOpen(false);
+    setLangDropdown(false);
   }, [location]);
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    const handleClick = () => setLangDropdown(false);
+    if (langDropdown) {
+      document.addEventListener('click', handleClick);
+      return () => document.removeEventListener('click', handleClick);
+    }
+  }, [langDropdown]);
+
+  const isActive = (item: typeof navItems[0]) => {
+    const currentPath = lang === 'it' ? item.pathIt : item.pathPl;
+    if (currentPath === '/it/' || currentPath === '/pl/') {
+      return location.pathname === currentPath;
+    }
+    return location.pathname.startsWith(currentPath);
+  };
 
   return (
     <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-      scrolled ? 'bg-navy/95 shadow-lg backdrop-blur-sm' : 'bg-navy'
+      scrolled 
+        ? 'bg-navy/97 shadow-xl shadow-navy/20 backdrop-blur-md py-0' 
+        : 'bg-navy py-1'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-18 sm:h-20">
+          
           {/* Logo */}
-          <Link to={lang === 'it' ? '/it/' : '/pl/'} className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-teal flex items-center justify-center">
-              <span className="text-white text-2xl">🌴</span>
+          <Link to={lang === 'it' ? '/it/' : '/pl/'} className="flex items-center gap-3 group">
+            <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-teal/40 group-hover:border-teal transition-colors shadow-md">
+              <img 
+                src="/images/logo.png" 
+                alt="Zanzibar Vibe Tours" 
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  // Fallback to emoji if logo not loaded
+                  (e.target as HTMLImageElement).style.display = 'none';
+                  (e.target as HTMLImageElement).parentElement!.innerHTML = '<span class="text-2xl flex items-center justify-center w-full h-full bg-teal/20">🌴</span>';
+                }}
+              />
             </div>
-            <span className="font-[Pacifico] text-xl sm:text-2xl text-teal hidden sm:block">
-              {t('slogan')}
-            </span>
+            <div className="hidden sm:block">
+              <span className="font-[Pacifico] text-lg sm:text-xl text-teal block leading-tight">
+                Zanzibar Vibe Tours
+              </span>
+              <span className="text-white/40 text-[10px] uppercase tracking-widest">
+                {lang === 'it' ? 'Esperienze autentiche' : 'Autentyczne doświadczenia'}
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-6">
+          <nav className="hidden lg:flex items-center gap-1">
             {navItems.map(item => (
               <Link
                 key={item.key}
                 to={lang === 'it' ? item.pathIt : item.pathPl}
-                className={`text-white/80 hover:text-orange font-semibold text-sm uppercase tracking-wide transition-colors relative group ${
-                  location.pathname === (lang === 'it' ? item.pathIt : item.pathPl) ? 'text-orange' : ''
+                className={`px-3 py-2 rounded-lg font-semibold text-[13px] uppercase tracking-wide transition-all relative ${
+                  isActive(item)
+                    ? 'text-orange bg-orange/10'
+                    : 'text-white/75 hover:text-white hover:bg-white/5'
                 }`}
               >
                 {t(item.key)}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange transition-all group-hover:w-full" />
+                {isActive(item) && (
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-orange rounded-full" />
+                )}
               </Link>
             ))}
             
-            {/* Language Switcher */}
-            <div className="flex items-center gap-2 ml-4 pl-4 border-l border-white/20">
+            {/* Language Switcher - Desktop */}
+            <div className="relative ml-3 pl-3 border-l border-white/15">
               <button
-                onClick={() => setLang('it')}
-                className={`px-2 py-1 rounded text-sm font-bold transition-all ${
-                  lang === 'it' ? 'bg-orange/20 text-white border border-orange' : 'text-white/50 hover:text-white'
-                }`}
+                onClick={(e) => { e.stopPropagation(); setLangDropdown(!langDropdown); }}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-white/70 hover:text-white hover:bg-white/5 transition-all text-sm font-medium"
               >
-                IT
+                <Globe size={15} />
+                <span className="uppercase font-bold">{lang}</span>
               </button>
-              <span className="text-white/30">|</span>
-              <button
-                onClick={() => setLang('pl')}
-                className={`px-2 py-1 rounded text-sm font-bold transition-all ${
-                  lang === 'pl' ? 'bg-orange/20 text-white border border-orange' : 'text-white/50 hover:text-white'
-                }`}
-              >
-                PL
-              </button>
+              
+              {langDropdown && (
+                <div className="absolute right-0 top-full mt-2 bg-white rounded-xl shadow-2xl border border-navy/10 overflow-hidden min-w-[120px] animate-fadeIn">
+                  <button
+                    onClick={() => setLang('it')}
+                    className={`w-full px-4 py-2.5 text-left text-sm font-semibold transition-colors flex items-center gap-2 ${
+                      lang === 'it' ? 'bg-teal/10 text-teal' : 'text-navy/70 hover:bg-navy/5'
+                    }`}
+                  >
+                    <span>🇮🇹</span> Italiano
+                  </button>
+                  <button
+                    onClick={() => setLang('pl')}
+                    className={`w-full px-4 py-2.5 text-left text-sm font-semibold transition-colors flex items-center gap-2 ${
+                      lang === 'pl' ? 'bg-teal/10 text-teal' : 'text-navy/70 hover:bg-navy/5'
+                    }`}
+                  >
+                    <span>🇵🇱</span> Polski
+                  </button>
+                </div>
+              )}
             </div>
           </nav>
 
           {/* Mobile burger */}
           <button
-            className="lg:hidden text-white p-2"
+            className="lg:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-colors"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Menu"
           >
-            {menuOpen ? <X size={28} /> : <Menu size={28} />}
+            {menuOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
-      {menuOpen && (
-        <div className="lg:hidden bg-navy border-t border-white/10 animate-fadeIn">
-          <nav className="flex flex-col items-center py-6 gap-5">
+      <div className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+        menuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+      }`}>
+        <div className="bg-navy border-t border-white/10">
+          <nav className="flex flex-col py-4 px-4 gap-1">
             {navItems.map(item => (
               <Link
                 key={item.key}
                 to={lang === 'it' ? item.pathIt : item.pathPl}
-                className="text-white/80 hover:text-orange font-semibold text-lg uppercase tracking-wide"
+                className={`px-4 py-3 rounded-lg font-semibold text-base transition-all ${
+                  isActive(item)
+                    ? 'text-orange bg-orange/10'
+                    : 'text-white/75 hover:text-white hover:bg-white/5'
+                }`}
               >
                 {t(item.key)}
               </Link>
             ))}
-            <div className="flex items-center gap-3 mt-4 pt-4 border-t border-white/10">
+            
+            {/* Mobile Language Switcher */}
+            <div className="flex items-center gap-2 mt-3 pt-3 border-t border-white/10 px-4">
+              <Globe size={16} className="text-white/50" />
+              <span className="text-white/50 text-sm mr-2">
+                {lang === 'it' ? 'Lingua:' : 'Język:'}
+              </span>
               <button
                 onClick={() => setLang('it')}
-                className={`px-3 py-1.5 rounded font-bold transition-all ${
-                  lang === 'it' ? 'bg-orange/20 text-white border border-orange' : 'text-white/50'
+                className={`px-3 py-1.5 rounded-lg text-sm font-bold transition-all ${
+                  lang === 'it' ? 'bg-orange text-white' : 'text-white/50 hover:text-white hover:bg-white/5'
                 }`}
               >
-                IT
+                🇮🇹 IT
               </button>
               <button
                 onClick={() => setLang('pl')}
-                className={`px-3 py-1.5 rounded font-bold transition-all ${
-                  lang === 'pl' ? 'bg-orange/20 text-white border border-orange' : 'text-white/50'
+                className={`px-3 py-1.5 rounded-lg text-sm font-bold transition-all ${
+                  lang === 'pl' ? 'bg-orange text-white' : 'text-white/50 hover:text-white hover:bg-white/5'
                 }`}
               >
-                PL
+                🇵🇱 PL
               </button>
             </div>
           </nav>
         </div>
-      )}
+      </div>
     </header>
   );
 }
