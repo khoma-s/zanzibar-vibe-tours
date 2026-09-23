@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useLang } from '../context/LangContext';
-import Logo from '../components/Logo';
 import { MapPin, Camera, BookOpen, ArrowRight, Compass, Shield, Heart, Star } from 'lucide-react';
 
 interface Tour {
@@ -71,7 +70,21 @@ export default function HomePage() {
           {/* Logo */}
           <div className="mb-8 animate-float">
             <div className="inline-block">
-              <Logo size={120} showText={false} variant="light" />
+              <img 
+                src="/images/logo.png" 
+                alt="Zanzibar Vibe Tours" 
+                className="w-32 h-32 sm:w-40 sm:h-40 object-contain"
+                onError={(e) => {
+                  // Fallback to SVG logo if image not found
+                  (e.target as HTMLImageElement).style.display = 'none';
+                  const parent = (e.target as HTMLImageElement).parentElement;
+                  if (parent) {
+                    const svgLogo = document.createElement('div');
+                    svgLogo.innerHTML = '<svg width="120" height="120" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="48" fill="rgba(255,255,255,0.1)" stroke="#2AAFB5" stroke-width="2"/><circle cx="65" cy="32" r="12" fill="#F5A623" opacity="0.9"/><path d="M 38 75 Q 40 55 42 40" stroke="#1B3A5F" stroke-width="3" stroke-linecap="round" fill="none"/><g fill="#2AAFB5"><path d="M 42 40 Q 30 30 20 35 Q 30 38 42 40" opacity="0.9"/><path d="M 42 40 Q 50 25 60 28 Q 50 35 42 40" opacity="0.8"/></g><path d="M 15 72 Q 25 68 35 72 Q 45 76 55 72 Q 65 68 75 72 Q 85 76 90 72" stroke="#2AAFB5" stroke-width="2" fill="none" opacity="0.7"/></svg>';
+                    parent.appendChild(svgLogo);
+                  }
+                }}
+              />
             </div>
           </div>
 
@@ -99,28 +112,6 @@ export default function HomePage() {
               <Camera size={20} />
               {t('gallery')}
             </Link>
-          </div>
-
-          {/* Stats */}
-          <div className="mt-16 grid grid-cols-3 gap-6 max-w-lg mx-auto">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-teal">50+</div>
-              <div className="text-cream/50 text-xs uppercase tracking-wider mt-1">
-                {lang === 'it' ? 'Tour' : 'Wycieczek'}
-              </div>
-            </div>
-            <div className="text-center border-x border-white/10">
-              <div className="text-3xl font-bold text-orange">1000+</div>
-              <div className="text-cream/50 text-xs uppercase tracking-wider mt-1">
-                {lang === 'it' ? 'Clienti' : 'Klientów'}
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-teal">5★</div>
-              <div className="text-cream/50 text-xs uppercase tracking-wider mt-1">
-                {lang === 'it' ? 'Valutazione' : 'Ocena'}
-              </div>
-            </div>
           </div>
         </div>
 
