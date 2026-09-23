@@ -9,8 +9,7 @@ public/images/
 ├── favicon-16x16.png     # Favicon 16×16
 ├── apple-touch-icon.png  # Apple touch icon 180×180
 ├── about/
-│   └── me.jpg            # Фото основателя (для страницы About)
-├── moments/
+│   ├── me.jpg            # Фото основателя (для страницы About)
 │   ├── photo1.jpg        # Фото для слайдера "Nasze chwile"
 │   ├── photo2.jpg
 │   ├── photo3.jpg

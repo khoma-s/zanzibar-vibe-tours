@@ -8,15 +8,15 @@ interface AboutData {
   history: string;
   email: string;
   phone: string;
-  moments_photos_path: string;
-  moments_photos: string[];
+  about_photos_path: string;
+  about_photos: string[];
 }
 
 export default function AboutPage() {
   const { lang, t } = useLang();
   const [data, setData] = useState<AboutData | null>(null);
   const [activeSlide, setActiveSlide] = useState(0);
-  const lightbox = useLightbox(data?.moments_photos || []);
+  const lightbox = useLightbox(data?.about_photos || []);
 
   useEffect(() => {
     fetch(`/data/${lang}/about.json`)
@@ -29,7 +29,7 @@ export default function AboutPage() {
     // Auto-slide
     if (!data) return;
     const interval = setInterval(() => {
-      setActiveSlide(prev => (prev + 1) % data.moments_photos.length);
+      setActiveSlide(prev => (prev + 1) % data.about_photos.length);
     }, 5000);
     return () => clearInterval(interval);
   }, [data]);
@@ -38,7 +38,7 @@ export default function AboutPage() {
     return <Loading />;
   }
 
-  const photos = data.moments_photos;
+  const photos = data.about_photos;
 
   const nextSlide = () => setActiveSlide(prev => (prev + 1) % photos.length);
   const prevSlide = () => setActiveSlide(prev => (prev - 1 + photos.length) % photos.length);
@@ -88,9 +88,6 @@ export default function AboutPage() {
               alt="Founder" 
               className="w-full h-full object-cover rounded-xl"
               style={{ maxHeight: '400px' }}
-              onError={(e) => {
-                (e.target as HTMLImageElement).src = 'https://picsum.photos/400/400?random=founder';
-              }}
             />
           </div>
         </div>
@@ -132,9 +129,6 @@ export default function AboutPage() {
                 src={photos[activeSlide]}
                 alt={`About photo ${activeSlide + 1}`}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = `https://picsum.photos/1200/675?random=${activeSlide + 20}`;
-                }}
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center">
                 <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 text-navy px-4 py-2 rounded-full font-semibold text-sm">
@@ -179,9 +173,6 @@ export default function AboutPage() {
                   src={photo}
                   alt={`Thumbnail ${index + 1}`}
                   className="w-full h-full object-cover"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = `https://picsum.photos/200/200?random=${index + 30}`;
-                  }}
                 />
               </button>
             ))}
