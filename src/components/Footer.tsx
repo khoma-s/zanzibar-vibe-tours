@@ -1,6 +1,7 @@
 import { useLang } from '../context/LangContext';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Facebook, Instagram, ArrowRight } from 'lucide-react';
+import Logo from './Logo';
 
 export default function Footer() {
   const { lang, t } = useLang();
@@ -19,19 +20,8 @@ export default function Footer() {
           
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-full overflow-hidden border border-teal/30">
-                <img 
-                  src="/images/logo.png" 
-                  alt="Logo" 
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).style.display = 'none';
-                    (e.target as HTMLImageElement).parentElement!.innerHTML = '<span class="text-lg flex items-center justify-center w-full h-full bg-teal/20">🌴</span>';
-                  }}
-                />
-              </div>
-              <span className="font-[Pacifico] text-lg text-teal">Zanzibar Vibe Tours</span>
+            <div className="mb-4">
+              <Logo size={40} variant="light" />
             </div>
             <p className="text-cream/60 text-sm leading-relaxed mb-5">
               {t('footer_desc')}
