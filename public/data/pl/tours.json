@@ -28,15 +28,5 @@
     "price": 1950,
     "title": "Kulturalne Stone Town",
     "short_desc": "Wycieczka kulturalna po historycznym sercu Zanzibaru"
-  },
-  {
-    "tour_id": "004",
-    "img_title": "/images/tours/004/title.jpg",
-    "imgs": ["/images/tours/004/1.jpg", "/images/tours/004/2.jpg", "/images/tours/004/3.jpg"],
-    "info": "Ciesz się magicznym zachodem słońca na tradycyjnym dhow suahili. Szampan, muzyka na żywo i kolacja ze świeżo złowionych ryb. Najbardziej romantyczne doświadczenie na Zanzibarze.",
-    "currency": "PLN",
-    "price": 5200,
-    "title": "Rejs Sunset Dhow",
-    "short_desc": "Romantyczny rejs o zachodzie słońca z kolacją na pokładzie"
   }
 ]
