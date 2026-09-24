@@ -125,12 +125,12 @@ export default function GalleryPage() {
         {(totalPhotos > 0 || totalVideos > 0) && (
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8 bg-white rounded-xl p-4 shadow-sm">
             {/* Filters */}
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
               {filters.filter(f => f.count > 0).map(f => (
                 <button
                   key={f.key}
                   onClick={() => setFilter(f.key)}
-                  className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
+                  className={`flex items-center gap-1 sm:gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all ${
                     filter === f.key
                       ? 'bg-teal text-white shadow-md'
                       : 'bg-cream/50 text-navy/60 hover:bg-cream hover:text-navy'
@@ -152,7 +152,7 @@ export default function GalleryPage() {
               <div className="flex items-center gap-1 bg-cream/50 rounded-lg p-1">
                 <button
                   onClick={() => setViewMode('grid')}
-                  className={`p-2 rounded-md transition-all ${
+                  className={`p-1.5 sm:p-2 rounded-md transition-all ${
                     viewMode === 'grid' ? 'bg-white shadow-sm text-teal' : 'text-navy/40 hover:text-navy/60'
                   }`}
                   title={lang === 'it' ? 'Griglia' : 'Siatka'}
@@ -161,7 +161,7 @@ export default function GalleryPage() {
                 </button>
                 <button
                   onClick={() => setViewMode('masonry')}
-                  className={`p-2 rounded-md transition-all ${
+                  className={`p-1.5 sm:p-2 rounded-md transition-all ${
                     viewMode === 'masonry' ? 'bg-white shadow-sm text-teal' : 'text-navy/40 hover:text-navy/60'
                   }`}
                   title={lang === 'it' ? 'Mosaico' : 'Mozaika'}
