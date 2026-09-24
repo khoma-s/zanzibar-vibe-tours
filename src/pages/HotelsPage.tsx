@@ -15,12 +15,18 @@ export default function HotelsPage() {
   const { lang, t } = useLang();
   const [hotels, setHotels] = useState<HotelData[]>([]);
   const [selectedHotel, setSelectedHotel] = useState<HotelData | null>(null);
+  const [whatsapp, setWhatsapp] = useState<string>('');
   const lightbox = useLightbox(selectedHotel?.imgs || []);
 
   useEffect(() => {
     fetch(`/data/${lang}/hotels.json`)
       .then(r => r.json())
       .then(setHotels)
+      .catch(() => {});
+    
+    fetch('/data/kontakts.json')
+      .then(r => r.json())
+      .then(data => setWhatsapp(data.whatsapp))
       .catch(() => {});
   }, [lang]);
 
@@ -152,7 +158,9 @@ export default function HotelsPage() {
                   {/* CTA */}
                   <div className="pt-4 border-t border-navy/5">
                     <a
-                      href="mailto:info@zanzibarvibetours.com"
+                      href={whatsapp ? `https://wa.me/${whatsapp}` : '#'}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-full bg-teal/10 hover:bg-teal text-teal hover:text-white font-semibold py-2.5 rounded-xl transition-all text-center block text-sm"
                     >
                       {lang === 'it' ? 'Richiedi informazioni' : 'Zapytaj o szczegóły'}
