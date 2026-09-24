@@ -141,6 +141,7 @@ export function TourDetailPage() {
   const { lang, t } = useLang();
   const { tour_id } = useParams();
   const [tour, setTour] = useState<Tour | null>(null);
+  const [whatsapp, setWhatsapp] = useState<string>('');
   const lightbox = useLightbox(tour?.imgs || []);
 
   useEffect(() => {
@@ -150,6 +151,11 @@ export function TourDetailPage() {
         const found = data.find(t => t.tour_id === tour_id);
         if (found) setTour(found);
       })
+      .catch(() => {});
+    
+    fetch('/data/kontakts.json')
+      .then(r => r.json())
+      .then(data => setWhatsapp(data.whatsapp))
       .catch(() => {});
   }, [lang, tour_id]);
 
@@ -269,7 +275,9 @@ export function TourDetailPage() {
               </div>
 
               <a
-                href="mailto:info@zanzibarvibetours.com"
+                href={whatsapp ? `https://wa.me/${whatsapp}` : '#'}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-6 w-full bg-teal hover:bg-teal/90 text-white font-bold py-3 rounded-xl transition-all hover:scale-105 text-center block"
               >
                 {lang === 'it' ? 'Prenota ora' : 'Zarezerwuj teraz'}
