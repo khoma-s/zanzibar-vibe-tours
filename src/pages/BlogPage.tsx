@@ -1,15 +1,13 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useLang } from '../context/LangContext';
 import Loading from '../components/Loading';
-import { BookOpen, X, Search, Calendar, Tag, ChevronRight, Clock } from 'lucide-react';
+import { BookOpen, X, Search, Tag, ChevronRight } from 'lucide-react';
 
 interface Post {
   post_id: string;
   title: string;
   text: string;
   category?: string;
-  date?: string;
-  read_time?: number;
 }
 
 export default function BlogPage() {
@@ -23,12 +21,10 @@ export default function BlogPage() {
     fetch(`/data/${lang}/posts.json`)
       .then(r => r.json())
       .then((data: Post[]) => {
-        // Add default categories and dates if missing
-        const enriched = data.map((post, idx) => ({
+        // Add default categories if missing
+        const enriched = data.map((post) => ({
           ...post,
           category: post.category || (lang === 'it' ? 'Consigli' : 'Porady'),
-          date: post.date || new Date(2026, 0, idx + 1).toISOString().split('T')[0],
-          read_time: post.read_time || Math.max(2, Math.ceil(post.text.length / 500)),
         }));
         setPosts(enriched);
       })
@@ -51,16 +47,6 @@ export default function BlogPage() {
       return matchesSearch && matchesCategory;
     });
   }, [posts, searchQuery, selectedCategory]);
-
-  // Format date
-  const formatDate = (dateStr: string) => {
-    const date = new Date(dateStr);
-    return date.toLocaleDateString(lang === 'it' ? 'it-IT' : 'pl-PL', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    });
-  };
 
   // Category colors
   const getCategoryColor = (category: string) => {
@@ -152,22 +138,10 @@ export default function BlogPage() {
                           {post.category}
                         </span>
                       )}
-                      {post.date && (
-                        <span className="flex items-center gap-1 text-xs text-navy/40">
-                          <Calendar size={11} />
-                          {formatDate(post.date)}
-                        </span>
-                      )}
-                      {post.read_time && (
-                        <span className="flex items-center gap-1 text-xs text-navy/40">
-                          <Clock size={11} />
-                          {post.read_time} {lang === 'it' ? 'min' : 'min'}
-                        </span>
-                      )}
                     </div>
 
                     {/* Title */}
-                    <h3 className="font-[Inter] font-bold text-lg text-navy mb-2 group-hover:text-teal transition-colors">
+                    <h3 className="font-[Inter] font-normal text-xl text-navy mb-2 group-hover:text-teal transition-colors">
                       {post.title}
                     </h3>
 
@@ -231,18 +205,6 @@ export default function BlogPage() {
                     {selectedPost.category}
                   </span>
                 )}
-                {selectedPost.date && (
-                  <span className="flex items-center gap-1 text-xs text-cream/70">
-                    <Calendar size={11} />
-                    {formatDate(selectedPost.date)}
-                  </span>
-                )}
-                {selectedPost.read_time && (
-                  <span className="flex items-center gap-1 text-xs text-cream/70">
-                    <Clock size={11} />
-                    {selectedPost.read_time} {lang === 'it' ? 'min di lettura' : 'min czytania'}
-                  </span>
-                )}
               </div>
 
               {/* Title */}
@@ -259,8 +221,8 @@ export default function BlogPage() {
                 </p>
               </div>
 
-              {/* Tags / Share */}
-              <div className="mt-8 pt-6 border-t border-navy/10 flex flex-wrap items-center justify-between gap-4">
+              {/* Tags */}
+              <div className="mt-8 pt-6 border-t border-navy/10 flex flex-wrap items-center gap-4">
                 <div className="flex items-center gap-2">
                   <span className="text-xs text-navy/40 uppercase tracking-wider font-semibold">
                     {lang === 'it' ? 'Categoria:' : 'Kategoria:'}
@@ -268,22 +230,6 @@ export default function BlogPage() {
                   <span className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold ${getCategoryColor(selectedPost.category || '')}`}>
                     {selectedPost.category}
                   </span>
-                </div>
-                
-                <div className="flex items-center gap-2">
-                  <span className="text-xs text-navy/40">
-                    {lang === 'it' ? 'Condividi:' : 'Udostępnij:'}
-                  </span>
-                  <button className="w-8 h-8 rounded-full bg-navy/5 hover:bg-teal/10 flex items-center justify-center text-navy/40 hover:text-teal transition-all">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
-                    </svg>
-                  </button>
-                  <button className="w-8 h-8 rounded-full bg-navy/5 hover:bg-teal/10 flex items-center justify-center text-navy/40 hover:text-teal transition-all">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.958.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
-                    </svg>
-                  </button>
                 </div>
               </div>
             </div>
