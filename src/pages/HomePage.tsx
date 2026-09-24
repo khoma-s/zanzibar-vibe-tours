@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useLang } from '../context/LangContext';
-import { MapPin, Camera, BookOpen, ArrowRight, Compass, Shield, Heart, Star } from 'lucide-react';
+import { MapPin, Camera, BookOpen, ArrowRight, Compass, Shield, Heart, Star, X } from 'lucide-react';
+import Lightbox, { useLightbox } from '../components/Lightbox';
 
 interface Tour {
   tour_id: string;
@@ -15,12 +16,16 @@ interface Tour {
 interface Post {
   post_id: string;
   title: string;
+  text: string;
 }
 
 export default function HomePage() {
   const { lang, t } = useLang();
   const [tours, setTours] = useState<Tour[]>([]);
   const [posts, setPosts] = useState<Post[]>([]);
+  const [galleryImages, setGalleryImages] = useState<string[]>([]);
+  const [selectedPost, setSelectedPost] = useState<Post | null>(null);
+  const lightbox = useLightbox(galleryImages);
 
   useEffect(() => {
     fetch(`/data/${lang}/tours.json`)
@@ -29,8 +34,21 @@ export default function HomePage() {
       .catch(() => {});
     fetch(`/data/${lang}/posts.json`)
       .then(r => r.json())
-      .then(data => setPosts(data.slice(0, 3)))
+      .then((data: Post[]) => {
+        // Перемешиваем массив и берём первые 3
+        const shuffled = [...data].sort(() => Math.random() - 0.5);
+        setPosts(shuffled.slice(0, 3));
+      })
       .catch(() => {});
+    // Загружаем первые 5 изображений из галереи
+    const loadGalleryImages = async () => {
+      const images: string[] = [];
+      for (let i = 1; i <= 5; i++) {
+        images.push(`/images/gallery/photo${i}.jpg`);
+      }
+      setGalleryImages(images);
+    };
+    loadGalleryImages();
   }, [lang]);
 
   const currencySymbol = lang === 'it' ? '€' : 'zł';
@@ -220,19 +238,19 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
-            {[1, 2, 3, 4, 5].map(i => (
-              <Link
+            {galleryImages.slice(0, 5).map((img, i) => (
+              <button
                 key={i}
-                to={lang === 'it' ? '/it/galleria' : '/pl/galeria'}
-                className={`${i === 1 ? 'col-span-2 row-span-2' : ''} aspect-square rounded-xl overflow-hidden bg-gradient-to-br from-teal/10 to-orange/5 hover:shadow-lg transition-all group cursor-pointer relative`}
+                onClick={() => lightbox.open(i)}
+                className={`${i === 0 ? 'col-span-2 row-span-2' : ''} aspect-square rounded-xl overflow-hidden bg-gradient-to-br from-teal/10 to-orange/5 hover:shadow-lg transition-all group cursor-pointer relative`}
               >
                 <img
-                  src={`/images/gallery/photo${i}.jpg`}
-                  alt={`Gallery ${i}`}
+                  src={img}
+                  alt={`Gallery ${i + 1}`}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              </Link>
+              </button>
             ))}
           </div>
         </div>
@@ -261,10 +279,10 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {posts.map((post, idx) => (
-              <Link
+              <button
                 key={post.post_id}
-                to={lang === 'it' ? `/it/blog/${post.post_id}` : `/pl/blog/${post.post_id}`}
-                className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all hover:-translate-y-1 border-l-4 border-teal group"
+                onClick={() => setSelectedPost(post)}
+                className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all hover:-translate-y-1 border-l-4 border-teal group text-left w-full"
               >
                 <h3 className="font-[Inter] font-normal text-navy text-lg mb-3 group-hover:text-teal transition-colors">
                   {post.title}
@@ -272,7 +290,7 @@ export default function HomePage() {
                 <span className="text-teal text-sm font-semibold flex items-center gap-1">
                   {t('read_more')} <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </span>
-              </Link>
+              </button>
             ))}
           </div>
         </div>
@@ -318,6 +336,51 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Post Modal */}
+      {selectedPost && (
+        <div 
+          className="fixed inset-0 z-[9999] bg-black/60 flex items-center justify-center p-4 animate-fadeIn"
+          onClick={() => setSelectedPost(null)}
+        >
+          <div
+            className="bg-white rounded-2xl max-w-3xl w-full max-h-[85vh] overflow-hidden flex flex-col animate-slideIn shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="bg-gradient-to-r from-navy to-teal/80 p-6 relative flex-shrink-0">
+              <button
+                className="absolute top-4 right-4 text-white/60 hover:text-white p-1 rounded-full hover:bg-white/10 transition-all"
+                onClick={() => setSelectedPost(null)}
+                aria-label={t('close')}
+              >
+                <X size={24} />
+              </button>
+              <h2 className="font-[Pacifico] text-2xl sm:text-3xl text-white pr-8">
+                {selectedPost.title}
+              </h2>
+            </div>
+
+            {/* Modal Content */}
+            <div className="overflow-y-auto flex-1 p-6 sm:p-8">
+              <p className="text-navy/80 leading-relaxed text-base whitespace-pre-line">
+                {selectedPost.text}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Gallery Lightbox */}
+      {lightbox.isOpen && (
+        <Lightbox
+          images={galleryImages}
+          currentIndex={lightbox.currentIndex}
+          onClose={lightbox.close}
+          onNext={lightbox.next}
+          onPrev={lightbox.prev}
+        />
+      )}
     </div>
   );
 }
