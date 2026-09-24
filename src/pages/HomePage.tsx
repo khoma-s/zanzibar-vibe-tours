@@ -4,6 +4,9 @@ import { useLang } from '../context/LangContext';
 import { MapPin, Camera, BookOpen, ArrowRight, Compass, Shield, Heart, Star, X } from 'lucide-react';
 import Lightbox, { useLightbox } from '../components/Lightbox';
 
+// Import all images from gallery folder at build time
+const galleryImageModules = import.meta.glob('/public/images/gallery/*.{jpg,jpeg,png,webp}', { eager: true });
+
 interface Tour {
   tour_id: string;
   img_title: string;
@@ -40,13 +43,14 @@ export default function HomePage() {
         setPosts(shuffled.slice(0, 3));
       })
       .catch(() => {});
-    // Загружаем первые 5 изображений из галереи
-    const loadGalleryImages = async () => {
-      const images: string[] = [];
-      for (let i = 1; i <= 5; i++) {
-        images.push(`/images/gallery/photo${i}.jpg`);
-      }
-      setGalleryImages(images);
+    // Загружаем 5 случайных изображений из галереи
+    const loadGalleryImages = () => {
+      const allImages = Object.keys(galleryImageModules)
+        .map(path => path.replace('/public', ''));
+      
+      // Перемешиваем массив и берём первые 5
+      const shuffled = [...allImages].sort(() => Math.random() - 0.5);
+      setGalleryImages(shuffled.slice(0, 5));
     };
     loadGalleryImages();
   }, [lang]);
