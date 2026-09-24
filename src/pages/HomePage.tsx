@@ -190,7 +190,7 @@ export default function HomePage() {
                 <div className="w-14 h-14 rounded-full bg-teal/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-teal/20 transition-colors">
                   <feature.icon size={24} className="text-teal" />
                 </div>
-                <h3 className="font-[Inter] font-normal text-navy text-sm mb-2">{feature.title}</h3>
+                <h3 className="font-[Inter] font-normal text-navy text-base mb-2">{feature.title}</h3>
                 <p className="text-navy/50 text-xs leading-relaxed">{feature.desc}</p>
               </div>
             ))}
@@ -266,10 +266,7 @@ export default function HomePage() {
                 to={lang === 'it' ? `/it/blog/${post.post_id}` : `/pl/blog/${post.post_id}`}
                 className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all hover:-translate-y-1 border-l-4 border-teal group"
               >
-                <div className="text-xs text-teal/60 font-semibold uppercase tracking-wider mb-3">
-                  {lang === 'it' ? `Articolo ${idx + 1}` : `Artykuł ${idx + 1}`}
-                </div>
-                <h3 className="font-[Inter] font-bold text-navy mb-3 group-hover:text-teal transition-colors">
+                <h3 className="font-[Inter] font-normal text-navy text-lg mb-3 group-hover:text-teal transition-colors">
                   {post.title}
                 </h3>
                 <span className="text-teal text-sm font-semibold flex items-center gap-1">
