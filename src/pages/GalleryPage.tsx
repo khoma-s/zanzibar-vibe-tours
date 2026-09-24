@@ -38,14 +38,13 @@ export default function GalleryPage() {
       .catch(() => {});
   }, [lang]);
 
-  // Helper function to fetch directory files (simulated - in production, this would be a server endpoint)
+  // Helper function to fetch directory files
   const fetchDirectoryFiles = async (basePath: string, extensions: string[]): Promise<string[]> => {
-    // Since we can't directly list directory contents in browser,
-    // we'll try to fetch common file names
     const files: string[] = [];
     
-    // Try to fetch up to 50 files
-    for (let i = 1; i <= 50; i++) {
+    // Try to fetch files with different naming patterns
+    // Pattern 1: photo1.jpg, photo2.jpg, etc.
+    for (let i = 1; i <= 100; i++) {
       for (const ext of extensions) {
         const fileName = `${basePath}photo${i}.${ext}`;
         try {
@@ -56,6 +55,24 @@ export default function GalleryPage() {
           }
         } catch {
           // File doesn't exist, continue
+        }
+      }
+    }
+    
+    // Pattern 2: 1.jpg, 2.jpg, etc.
+    if (files.length === 0) {
+      for (let i = 1; i <= 100; i++) {
+        for (const ext of extensions) {
+          const fileName = `${basePath}${i}.${ext}`;
+          try {
+            const response = await fetch(fileName, { method: 'HEAD' });
+            if (response.ok) {
+              files.push(fileName);
+              break;
+            }
+          } catch {
+            // File doesn't exist, continue
+          }
         }
       }
     }
