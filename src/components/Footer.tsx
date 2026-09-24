@@ -50,7 +50,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div className="text-center">
-            <h4 className="text-orange font-bold uppercase text-xs tracking-wider mb-5 font-[Inter]">{t('contact')}</h4>
+            <h4 className="text-orange font-semibold text-[13px] uppercase tracking-wide mb-5 font-[Inter]">{t('contact')}</h4>
             <ul className="space-y-3">
               <li>
                 <a href="mailto:info@zanzibarvibetours.com" className="flex items-center gap-3 text-cream/60 hover:text-teal text-sm transition-colors justify-center">
@@ -83,7 +83,7 @@ export default function Footer() {
 
           {/* Navigation */}
           <div className="text-right">
-            <h4 className="text-orange font-bold uppercase text-xs tracking-wider mb-5 font-[Inter]">
+            <h4 className="text-orange font-semibold text-[13px] uppercase tracking-wide mb-5 font-[Inter]">
               {lang === 'it' ? 'Navigazione' : 'Nawigacja'}
             </h4>
             <ul className="space-y-2.5">
