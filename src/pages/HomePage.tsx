@@ -190,7 +190,7 @@ export default function HomePage() {
                 <div className="w-14 h-14 rounded-full bg-teal/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-teal/20 transition-colors">
                   <feature.icon size={24} className="text-teal" />
                 </div>
-                <h3 className="font-[Inter] font-bold text-navy text-sm mb-2">{feature.title}</h3>
+                <h3 className="font-[Inter] font-normal text-navy text-sm mb-2">{feature.title}</h3>
                 <p className="text-navy/50 text-xs leading-relaxed">{feature.desc}</p>
               </div>
             ))}
@@ -220,7 +220,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
-            {[1, 2, 3, 4, 5, 6].map(i => (
+            {[1, 2, 3, 4, 5].map(i => (
               <Link
                 key={i}
                 to={lang === 'it' ? '/it/galleria' : '/pl/galeria'}
