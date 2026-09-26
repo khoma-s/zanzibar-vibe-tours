@@ -17,15 +17,15 @@
     "tour_id": "002",
     "img_title": "/images/tours/002/title.jpg",
     "imgs": "/images/tours/002/",
-    "info": "Un'avventura indimenticabile sulle acque turchesi dell'Oceano Indiano. Snorkeling tra i coralli colorati, delfini e tartarughe marine. Include pranzo tipico su un'isola deserta.",
+    "info": "Capodanno a Zanzibar per 2 persone: 10 giorni al Panga Hotel 3* con mezza pensione, transfer aeroportuale, quattro escursioni, cena di San Silvestro con musica e assistenza di guida turistica.",
     "currency": "EUR",
-    "price": 850,
-    "title": "Snorkeling & Isola Deserta",
-    "short_desc": "Giornata di snorkeling e relax su un'isola privata",
-    "key_points": "Attrezzatura snorkeling professionale,Pranzo su isola deserta,Guida marina,Trasporto in barca,Assicurazione inclusa",
-    "duration": "1 giorno",
-    "group": "4-12 persone",
-    "location": "Oceano Indiano"
+    "price": 3150,
+    "title": "Capodanno 2027 a Zanzibar per 2",
+    "short_desc": "Festeggia il Capodanno 2027 a Zanzibar!",
+    "key_points": "Pacchetto per 2 persone – 10 giorni,Soggiorno al Panga Hotel 3*,Mezza pensione inclusa,Transfer da e per l'aeroporto,Assistenza di guida turistica,Cena di Capodanno con musica,Prison Island + Nakupenda – escursione di 1 giorno,Stone Town + Spice Tour, Delfini + Mnemba e Nungwi Aquarium – 3 escursioni di mezza giornata,Frutta e pranzo a base di frutti di mare sull'oceano durante l'escursione giornaliera",
+    "duration": "10 giorni",
+    "group": "2-30 persone",
+    "location": "Matemwe, Zanzibar, Tanzania"
   },
   {
     "tour_id": "003",
@@ -40,19 +40,5 @@
     "duration": "1 giorno",
     "group": "2-8 persone",
     "location": "Stone Town"
-  },
-  {
-    "tour_id": "004",
-    "img_title": "/images/tours/004/title.jpg",
-    "imgs": "/images/tours/004/",
-    "info": "Goditi un tramonto magico su un tradizionale dhow swahili. Champagne, musica dal vivo e cena a base di pesce fresco appena pescato. L'esperienza più romantica di Zanzibar.",
-    "currency": "EUR",
-    "price": 1200,
-    "title": "Sunset Dhow Cruise",
-    "short_desc": "Crociera romantica al tramonto con cena a bordo",
-    "key_points": "Dhow tradizionale,Cena con frutti di mare,Champagne,Musica dal vivo,Tramonto sul mare",
-    "duration": "4 ore",
-    "group": "2-20 persone",
-    "location": "Costa di Zanzibar"
   }
 ]

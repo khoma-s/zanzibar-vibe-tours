@@ -62,9 +62,22 @@ export default function HomePage() {
 
   useEffect(() => {
     fetch(`/data/${lang}/tours.json`)
-      .then(r => r.json())
-      .then(data => setTours(data.slice(0, 4)))
-      .catch(() => {});
+      .then(r => r.text())
+      .then(text => {
+        try {
+          const data = JSON.parse(text);
+          if (Array.isArray(data)) {
+            setTours(data.slice(0, 4));
+          } else {
+            console.error('Tours data is not an array:', data);
+          }
+        } catch (e) {
+          console.error('Invalid JSON in tours.json:', e);
+        }
+      })
+      .catch(err => {
+        console.error('Error loading tours:', err);
+      });
     fetch(`/data/${lang}/posts.json`)
       .then(r => r.json())
       .then((data: Post[]) => {
