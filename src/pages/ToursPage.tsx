@@ -28,6 +28,17 @@ interface Tour {
   location: string;
 }
 
+// Get currency symbol from currency code
+const getCurrencySymbol = (currencyCode: string): string => {
+  const symbols: Record<string, string> = {
+    'EUR': '€',
+    'PLN': 'zł',
+    'USD': '$',
+    'GBP': '£',
+  };
+  return symbols[currencyCode] || currencyCode;
+};
+
 // Tours List Page
 export function ToursListPage() {
   const { lang, t } = useLang();
@@ -48,8 +59,6 @@ export function ToursListPage() {
         console.error('Error loading tours:', err);
       });
   }, [lang]);
-
-  const currencySymbol = lang === 'it' ? '€' : 'zł';
 
   const sortedTours = [...tours].sort((a, b) => {
     if (sortBy === 'price-asc') return a.price - b.price;
@@ -109,7 +118,7 @@ export function ToursListPage() {
                 
                 {/* Price badge */}
                 <div className="absolute top-4 right-4 bg-orange text-white px-4 py-2 rounded-full font-bold shadow-lg">
-                  {tour.price.toLocaleString()} {currencySymbol}
+                  {tour.price.toLocaleString()} {getCurrencySymbol(tour.currency)}
                 </div>
 
                 {/* Title overlay */}
@@ -141,7 +150,7 @@ export function ToursListPage() {
                 <div className="flex items-center justify-between pt-4 border-t border-navy/5">
                   <div className="flex items-center gap-2 text-teal font-semibold">
                     <MapPin size={16} />
-                    <span>{t('from')} {tour.price.toLocaleString()} {currencySymbol}</span>
+                    <span>{t('from')} {tour.price.toLocaleString()} {getCurrencySymbol(tour.currency)}</span>
                   </div>
                   <span className="text-orange text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
                     {lang === 'it' ? 'Dettagli' : 'Szczegóły'} <ArrowLeft size={14} className="rotate-180" />
@@ -200,8 +209,6 @@ export function TourDetailPage() {
     return <Loading />;
   }
 
-  const currencySymbol = lang === 'it' ? '€' : 'zł';
-
   return (
     <div className="pt-24 pb-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -225,7 +232,7 @@ export function TourDetailPage() {
               {t('price')}
             </div>
             <div className="text-3xl font-bold text-orange">
-              {tour.price.toLocaleString()} {currencySymbol}
+              {tour.price.toLocaleString()} {getCurrencySymbol(tour.currency)}
             </div>
           </div>
         </div>
