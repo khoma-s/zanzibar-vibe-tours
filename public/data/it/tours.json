@@ -40,20 +40,5 @@
     "duration": "1 giorno",
     "group": "2-8 persone",
     "location": "Stone Town"
-  },
-  {
-    "tour_id": "004",
-    "img_title": "/images/tours/004/title.jpg",
-    "imgs": "/images/tours/004/",
-    "info": "Goditi un tramonto magico su un tradizionale dhow swahili. Champagne, musica dal vivo e cena a base di pesce fresco appena pescato. L'esperienza più romantica di Zanzibar.",
-    "currency": "EUR",
-    "price": 1200,
-    "title": "Sunset Dhow Cruise",
-    "short_desc": "Crociera romantica al tramonto con cena a bordo",
-    "key_points": "Dhow tradizionale,Cena con frutti di mare,Champagne,Musica dal vivo,Tramonto sul mare",
-    "duration": "4 ore",
-    "group": "2-20 persone",
-    "location": "Costa di Zanzibar"
-    "short_desc": "Tour culturale nel cuore storico di Zanzibar"
   }
-  ]
+]
