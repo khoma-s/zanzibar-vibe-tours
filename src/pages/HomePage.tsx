@@ -32,6 +32,14 @@ interface ContactInfo {
   tiktok: string;
 }
 
+// Parse Markdown to HTML
+const parseMarkdown = (text: string) => {
+  return text
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.*?)\*/g, '<em>$1</em>')
+    .replace(/\n/g, '<br/>');
+};
+
 export default function HomePage() {
   const { lang, t } = useLang();
   const [tours, setTours] = useState<Tour[]>([]);
@@ -385,9 +393,12 @@ export default function HomePage() {
 
             {/* Modal Content */}
             <div className="overflow-y-auto flex-1 p-6 sm:p-8">
-              <p className="text-navy/80 leading-relaxed text-base whitespace-pre-line">
-                {selectedPost.text}
-              </p>
+              <p 
+                className="text-navy/80 leading-relaxed text-base whitespace-pre-line"
+                dangerouslySetInnerHTML={{
+                  __html: parseMarkdown(selectedPost.text)
+                }}
+              />
             </div>
           </div>
         </div>
