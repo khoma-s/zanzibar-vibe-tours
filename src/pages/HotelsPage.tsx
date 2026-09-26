@@ -49,15 +49,6 @@ export default function HotelsPage() {
     lightbox.open(0);
   };
 
-  const getStars = (hotelId: string) => {
-    const starsMap: Record<string, number> = {
-      'hotel_01': 5,
-      'hotel_02': 4,
-      'hotel_03': 4,
-    };
-    return starsMap[hotelId] || 4;
-  };
-
   return (
     <div className="pt-24 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -75,8 +66,6 @@ export default function HotelsPage() {
         {/* Hotels Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {hotels.map((hotel) => {
-            const stars = getStars(hotel.hotel_id);
-
             return (
               <div key={hotel.hotel_id} className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group">
                 {/* Image */}
@@ -90,13 +79,6 @@ export default function HotelsPage() {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent" />
-                  
-                  {/* Stars */}
-                  <div className="absolute top-4 left-4 flex gap-0.5">
-                    {Array.from({ length: stars }).map((_, i) => (
-                      <Star key={i} size={14} className="text-orange fill-orange" />
-                    ))}
-                  </div>
 
                   {/* Gallery overlay */}
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all flex items-center justify-center">
@@ -113,7 +95,11 @@ export default function HotelsPage() {
                     {hotel.name}
                   </h3>
                   
-                  <p className="text-navy/60 text-sm leading-relaxed mb-4 line-clamp-3">{hotel.odescription}</p>
+                  <p className="text-navy/60 text-sm leading-relaxed mb-4">
+                    {hotel.odescription.length > 300 
+                      ? `${hotel.odescription.substring(0, 300)}...` 
+                      : hotel.odescription}
+                  </p>
 
                   {/* Key Points */}
                   <div className="flex flex-wrap gap-2 mb-4">
