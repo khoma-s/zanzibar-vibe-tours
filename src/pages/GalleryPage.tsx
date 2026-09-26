@@ -270,14 +270,6 @@ export default function GalleryPage() {
                       VIDEO
                     </div>
                   </div>
-                  <div className="p-4">
-                    <h3 className="font-semibold text-navy text-sm">
-                      {lang === 'it' ? `Video ${idx + 1}` : `Wideo ${idx + 1}`}
-                    </h3>
-                    <p className="text-navy/50 text-xs mt-1">
-                      {lang === 'it' ? 'Esperienza Zanzibar in movimento' : 'Doświadczenie Zanzibaru w ruchu'}
-                    </p>
-                  </div>
                 </div>
               ))}
             </div>
