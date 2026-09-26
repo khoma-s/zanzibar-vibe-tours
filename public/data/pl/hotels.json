@@ -2,19 +2,22 @@
   {
     "hotel_id": "hotel_01",
     "name": "Zanzibar Beach Resort",
-    "imgs": ["/images/hotels/hotel_01/1.jpg", "/images/hotels/hotel_01/2.jpg", "/images/hotels/hotel_01/3.jpg"],
-    "odescription": "Resort 5-gwiazdkowy na plaży Nungwi. Pokoje z widokiem na ocean, basen infinity, spa i restauracja z kuchnią lokalną i międzynarodową."
+    "imgs": "/images/hotels/hotel_01/",
+    "odescription": "Resort 5-gwiazdkowy na plaży Nungwi. Pokoje z widokiem na ocean, basen infinity, spa i restauracja z kuchnią lokalną i międzynarodową.",
+    "key_points": "Darmowe WiFi,Śniadanie w cenie,Basen infinity,Restauracja"
   },
   {
     "hotel_id": "hotel_02",
     "name": "Stone Town Boutique Hotel",
-    "imgs": ["/images/hotels/hotel_02/1.jpg", "/images/hotels/hotel_02/2.jpg", "/images/hotels/hotel_02/3.jpg"],
-    "odescription": "Hotel butikowy w sercu Stone Town. Historyczna architektura suahili, taras widokowy na port, śniadanie w cenie z tropikalnymi owocami."
+    "imgs": "/images/hotels/hotel_02/",
+    "odescription": "Hotel butikowy w sercu Stone Town. Historyczna architektura suahili, taras widokowy na port, śniadanie w cenie z tropikalnymi owocami.",
+    "key_points": "Darmowe WiFi,Śniadanie w cenie,Centrum historyczne,Taras widokowy"
   },
   {
     "hotel_id": "hotel_03",
     "name": "Paje Ocean Lodge",
-    "imgs": ["/images/hotels/hotel_03/1.jpg", "/images/hotels/hotel_03/2.jpg", "/images/hotels/hotel_03/3.jpg"],
-    "odescription": "Domyki drewniane na plaży Paje, idealne do kitesurfingu. Relaksująca atmosfera, bar na plaży i lekcje kitesurfingu w cenie."
+    "imgs": "/images/hotels/hotel_03/",
+    "odescription": "Domyki drewniane na plaży Paje, idealne do kitesurfingu. Relaksująca atmosfera, bar na plaży i lekcje kitesurfingu w cenie.",
+    "key_points": "Darmowe WiFi,Na plaży,Bar na plaży,Kitesurfing"
   }
 ]
