@@ -2,31 +2,58 @@
   {
     "tour_id": "001",
     "img_title": "/images/tours/001/title.jpg",
-    "imgs": ["/images/tours/001/1.jpg", "/images/tours/001/2.jpg", "/images/tours/001/3.jpg"],
+    "imgs": "/images/tours/001/",
     "info": "Odkryj białe plaże i krystaliczne wody Zanzibaru z tym przewodnikiem. Odwiedzimy Stone Town, plantacje przypraw i najpiękniejsze plaże wyspy. Niezapomniane doświadczenie pełne kultury, natury i relaksu.",
     "currency": "PLN",
     "price": 6500,
     "title": "Pełna Wycieczka po Zanzibarze",
-    "short_desc": "3 dni w Stone Town, wśród przypraw i rajskich plaż"
+    "short_desc": "3 dni w Stone Town, wśród przypraw i rajskich plaż",
+    "key_points": "Doświadczony lokalny przewodnik,Transport w cenie,Tradycyjny obiad,Sprzęt zapewniony,Pamiątkowe zdjęcia w cenie",
+    "duration": "1-3 dni",
+    "group": "2-10 osób",
+    "location": "Zanzibar, Tanzania"
   },
   {
     "tour_id": "002",
     "img_title": "/images/tours/002/title.jpg",
-    "imgs": ["/images/tours/002/1.jpg", "/images/tours/002/2.jpg", "/images/tours/002/3.jpg"],
+    "imgs": "/images/tours/002/",
     "info": "Niezapomniana przygoda na turkusowych wodach Oceanu Indyjskiego. Snorkeling wśród kolorowych koralowców, delfiny i żółwie morskie. W cenie tradycyjny obiad na bezludnej wyspie.",
     "currency": "PLN",
     "price": 3700,
     "title": "Snorkeling & Bezludna Wyspa",
-    "short_desc": "Dzień snorkelingu i relaksu na prywatnej wyspie"
+    "short_desc": "Dzień snorkelingu i relaksu na prywatnej wyspie",
+    "key_points": "Profesjonalny sprzęt do snorkelingu,Obiad na bezludnej wyspie,Opiekun morski,Transport łodzią,Ubezpieczenie",
+    "duration": "1 dzień",
+    "group": "4-12 osób",
+    "location": "Ocean Indyjski"
   },
   {
     "tour_id": "003",
     "img_title": "/images/tours/003/title.jpg",
-    "imgs": ["/images/tours/003/1.jpg", "/images/tours/003/2.jpg", "/images/tours/003/3.jpg"],
+    "imgs": "/images/tours/003/",
     "info": "Zanurz się w kulturze suahili odwiedzając Stone Town, dziedzictwo UNESCO. Spacer po historycznych zaułkach, targach przypraw, domu rodzinnym Freddiego Mercury'ego i pałacu Sułtana.",
     "currency": "PLN",
     "price": 1950,
     "title": "Kulturalne Stone Town",
+    "short_desc": "Wycieczka kulturalna po historycznym sercu Zanzibaru",
+    "key_points": "Przewodnik historyczny,Wstęp do muzeów,Tradycyjny lunch,Transport klimatyzowany,Pamiątki lokalne",
+    "duration": "1 dzień",
+    "group": "2-8 osób",
+    "location": "Stone Town"
+  },
+  {
+    "tour_id": "004",
+    "img_title": "/images/tours/004/title.jpg",
+    "imgs": "/images/tours/004/",
+    "info": "Ciesz się magicznym zachodem słońca na tradycyjnym dhow suahili. Szampan, muzyka na żywo i kolacja ze świeżo złowionych ryb. Najbardziej romantyczne doświadczenie na Zanzibarze.",
+    "currency": "PLN",
+    "price": 5200,
+    "title": "Rejs Sunset Dhow",
+    "short_desc": "Romantyczny rejs o zachodzie słońca z kolacją na pokładzie",
+    "key_points": "Tradycyjny dhow,Kolacja z owoców morza,Szampan,Muzyka na żywo,Zachód słońca",
+    "duration": "4 godziny",
+    "group": "2-20 osób",
+    "location": "Wybrzeże Zanzibaru"
     "short_desc": "Wycieczka kulturalna po historycznym sercu Zanzibaru"
   }
 ]
