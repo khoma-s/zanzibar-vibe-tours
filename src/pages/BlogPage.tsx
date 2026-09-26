@@ -216,9 +216,15 @@ export default function BlogPage() {
             {/* Modal Content */}
             <div className="overflow-y-auto flex-1 p-6 sm:p-8">
               <div className="prose prose-sm max-w-none">
-                <p className="text-navy/80 leading-relaxed text-base whitespace-pre-line">
-                  {selectedPost.text}
-                </p>
+                <p 
+                  className="text-navy/80 leading-relaxed text-base whitespace-pre-line"
+                  dangerouslySetInnerHTML={{
+                    __html: selectedPost.text
+                      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                      .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                      .replace(/\n/g, '<br/>')
+                  }}
+                />
               </div>
 
               {/* Tags */}

@@ -5,8 +5,13 @@ import Lightbox, { useLightbox } from '../components/Lightbox';
 import Loading from '../components/Loading';
 import { ArrowLeft, MapPin, Clock, Users, Star, Filter } from 'lucide-react';
 
-// Import all tour images at build time
-const tourImageModules = import.meta.glob('/public/images/tours/*/*.{jpg,jpeg,png,webp}', { eager: true });
+// Import all tour images at build time (with error handling)
+let tourImageModules: Record<string, unknown> = {};
+try {
+  tourImageModules = import.meta.glob('/public/images/tours/*/*.{jpg,jpeg,png,webp}', { eager: true });
+} catch (e) {
+  console.warn('No tour images found:', e);
+}
 
 interface Tour {
   tour_id: string;
@@ -31,9 +36,17 @@ export function ToursListPage() {
 
   useEffect(() => {
     fetch(`/data/${lang}/tours.json`)
-      .then(r => r.json())
-      .then(setTours)
-      .catch(() => {});
+      .then(r => {
+        if (!r.ok) throw new Error(`HTTP error! status: ${r.status}`);
+        return r.json();
+      })
+      .then((data: Tour[]) => {
+        console.log('Tours loaded:', data);
+        setTours(data);
+      })
+      .catch(err => {
+        console.error('Error loading tours:', err);
+      });
   }, [lang]);
 
   const currencySymbol = lang === 'it' ? '€' : 'zł';
@@ -113,11 +126,11 @@ export function ToursListPage() {
                 <div className="flex items-center gap-4 text-xs text-navy/50 mb-4">
                   <div className="flex items-center gap-1">
                     <Clock size={14} className="text-teal" />
-                    <span>{lang === 'it' ? '1-3 giorni' : '1-3 dni'}</span>
+                    <span>{tour.duration}</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <Users size={14} className="text-teal" />
-                    <span>{lang === 'it' ? '2-10 persone' : '2-10 osób'}</span>
+                    <span>{tour.group}</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <Star size={14} className="text-orange fill-orange" />
@@ -154,10 +167,15 @@ export function TourDetailPage() {
 
   // Get images from tour folder
   const getTourImages = (folderPath: string): string[] => {
-    return Object.keys(tourImageModules)
-      .map(path => path.replace('/public', ''))
-      .filter(path => path.startsWith(folderPath) && !path.includes('title.jpg'))
-      .sort();
+    try {
+      return Object.keys(tourImageModules)
+        .map(path => path.replace('/public', ''))
+        .filter(path => path.startsWith(folderPath) && !path.includes('title.jpg'))
+        .sort();
+    } catch (e) {
+      console.warn('Error loading tour images:', e);
+      return [];
+    }
   };
 
   useEffect(() => {
