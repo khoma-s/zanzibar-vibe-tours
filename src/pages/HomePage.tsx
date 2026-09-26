@@ -16,6 +16,17 @@ interface Tour {
   currency: string;
 }
 
+// Get currency symbol from currency code
+const getCurrencySymbol = (currencyCode: string): string => {
+  const symbols: Record<string, string> = {
+    'EUR': '€',
+    'PLN': 'zł',
+    'USD': '$',
+    'GBP': '£',
+  };
+  return symbols[currencyCode] || currencyCode;
+};
+
 interface Post {
   post_id: string;
   title: string;
@@ -78,8 +89,6 @@ export default function HomePage() {
     };
     loadGalleryImages();
   }, [lang]);
-
-  const currencySymbol = lang === 'it' ? '€' : 'zł';
 
   const features = lang === 'it' ? [
     { icon: Compass, title: 'Tour autentiche', desc: 'Esperienze genuine lontano dalle masse turistiche' },
@@ -195,14 +204,14 @@ export default function HomePage() {
                     }}
                   />
                   <div className="absolute top-3 right-3 bg-orange text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
-                    {tour.price.toLocaleString()} {currencySymbol}
+                    {tour.price.toLocaleString()} {getCurrencySymbol(tour.currency)}
                   </div>
                 </div>
                 <div className="p-5">
                   <h3 className="font-[Pacifico] text-base text-navy mb-1.5 line-clamp-2">{tour.title}</h3>
                   <p className="text-navy/50 text-xs mb-3 line-clamp-2">{tour.short_desc}</p>
                   <div className="flex items-center gap-1 text-teal text-xs font-semibold">
-                    <span>{t('from')} {tour.price.toLocaleString()} {currencySymbol}</span>
+                    <span>{t('from')} {tour.price.toLocaleString()} {getCurrencySymbol(tour.currency)}</span>
                     <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
