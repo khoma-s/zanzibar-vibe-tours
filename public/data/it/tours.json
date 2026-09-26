@@ -2,41 +2,57 @@
   {
     "tour_id": "001",
     "img_title": "/images/tours/001/title.jpg",
-    "imgs": ["/images/tours/001/1.jpg", "/images/tours/001/2.jpg", "/images/tours/001/3.jpg"],
+    "imgs": "/images/tours/001/",
     "info": "Scopri le spiagge bianche e le acque cristalline di Zanzibar con questo tour guidato. Visiteremo Stone Town, le piantagioni di spezie e le spiagge più belle dell'isola. Un'esperienza indimenticabile tra cultura, natura e relax.",
     "currency": "EUR",
     "price": 1500,
     "title": "Tour Completo di Zanzibar",
-    "short_desc": "3 giorni tra Stone Town, spezie e spiagge paradisiache"
+    "short_desc": "3 giorni tra Stone Town, spezie e spiagge paradisiache",
+    "key_points": "Guida locale esperta,Trasporto incluso,Pranzo tipico,Attrezzatura fornita,Foto ricordo incluse",
+    "duration": "1-3 giorni",
+    "group": "2-10 persone",
+    "location": "Zanzibar, Tanzania"
   },
   {
     "tour_id": "002",
     "img_title": "/images/tours/002/title.jpg",
-    "imgs": ["/images/tours/002/1.jpg", "/images/tours/002/2.jpg", "/images/tours/002/3.jpg"],
+    "imgs": "/images/tours/002/",
     "info": "Un'avventura indimenticabile sulle acque turchesi dell'Oceano Indiano. Snorkeling tra i coralli colorati, delfini e tartarughe marine. Include pranzo tipico su un'isola deserta.",
     "currency": "EUR",
     "price": 850,
     "title": "Snorkeling & Isola Deserta",
-    "short_desc": "Giornata di snorkeling e relax su un'isola privata"
+    "short_desc": "Giornata di snorkeling e relax su un'isola privata",
+    "key_points": "Attrezzatura snorkeling professionale,Pranzo su isola deserta,Guida marina,Trasporto in barca,Assicurazione inclusa",
+    "duration": "1 giorno",
+    "group": "4-12 persone",
+    "location": "Oceano Indiano"
   },
   {
     "tour_id": "003",
     "img_title": "/images/tours/003/title.jpg",
-    "imgs": ["/images/tours/003/1.jpg", "/images/tours/003/2.jpg", "/images/tours/003/3.jpg"],
+    "imgs": "/images/tours/003/",
     "info": "Immergiti nella cultura swahili visitando Stone Town, patrimonio UNESCO. Passeggiate nei vicoli storici, mercati delle spezie, la casa natale di Freddie Mercury e il palazzo del Sultano.",
     "currency": "EUR",
     "price": 450,
     "title": "Stone Town Culturale",
-    "short_desc": "Tour culturale nel cuore storico di Zanzibar"
+    "short_desc": "Tour culturale nel cuore storico di Zanzibar",
+    "key_points": "Guida storica,Ingresso ai musei,Pranzo tradizionale,Trasporto con aria condizionata,Souvenir locali",
+    "duration": "1 giorno",
+    "group": "2-8 persone",
+    "location": "Stone Town"
   },
   {
     "tour_id": "004",
     "img_title": "/images/tours/004/title.jpg",
-    "imgs": ["/images/tours/004/1.jpg", "/images/tours/004/2.jpg", "/images/tours/004/3.jpg"],
+    "imgs": "/images/tours/004/",
     "info": "Goditi un tramonto magico su un tradizionale dhow swahili. Champagne, musica dal vivo e cena a base di pesce fresco appena pescato. L'esperienza più romantica di Zanzibar.",
     "currency": "EUR",
     "price": 1200,
     "title": "Sunset Dhow Cruise",
-    "short_desc": "Crociera romantica al tramonto con cena a bordo"
+    "short_desc": "Crociera romantica al tramonto con cena a bordo",
+    "key_points": "Dhow tradizionale,Cena con frutti di mare,Champagne,Musica dal vivo,Tramonto sul mare",
+    "duration": "4 ore",
+    "group": "2-20 persone",
+    "location": "Costa di Zanzibar"
   }
 ]
