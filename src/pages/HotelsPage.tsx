@@ -131,7 +131,7 @@ export default function HotelsPage() {
                   {/* Gallery overlay */}
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all flex items-center justify-center">
                     <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 text-navy px-4 py-2 rounded-full font-semibold text-sm shadow-lg">
-                      📷 {hotel.imgs.length} {lang === 'it' ? 'foto' : 'zdjęć'}
+                      📷 {lang === 'it' ? 'Guarda le foto' : 'Zobacz zdjęcia'}
                     </span>
                   </div>
                 </button>

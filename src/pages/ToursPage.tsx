@@ -94,8 +94,8 @@ export function ToursListPage() {
 
                 {/* Title overlay */}
                 <div className="absolute bottom-4 left-4 right-4">
-                  <h3 className="font-[Pacifico] text-2xl text-white mb-1">{tour.title}</h3>
-                  <p className="text-cream/80 text-sm">{tour.short_desc}</p>
+                  <h3 className="font-[Pacifico] text-2xl text-white mb-1 drop-shadow-lg">{tour.title}</h3>
+                  <p className="text-cream/90 text-sm drop-shadow-md">{tour.short_desc}</p>
                 </div>
               </div>
 
@@ -209,14 +209,14 @@ export function TourDetailPage() {
           {/* Description */}
           <div className="lg:col-span-2">
             <div className="bg-white rounded-2xl shadow-md p-8">
-              <h2 className="font-[Inter] font-bold text-xl text-navy mb-4">
+              <h2 className="font-[Inter] font-normal text-2xl text-navy mb-4">
                 {lang === 'it' ? 'Descrizione del tour' : 'Opis wycieczki'}
               </h2>
               <p className="text-navy/70 leading-relaxed whitespace-pre-line">{tour.info}</p>
 
               {/* Highlights */}
               <div className="mt-8 pt-6 border-t border-navy/10">
-                <h3 className="font-[Inter] font-bold text-lg text-navy mb-4">
+                <h3 className="font-[Inter] font-normal text-xl text-navy mb-4">
                   {lang === 'it' ? 'Punti salienti' : 'Najważniejsze punkty'}
                 </h3>
                 <ul className="space-y-2">
@@ -246,7 +246,7 @@ export function TourDetailPage() {
           {/* Sidebar */}
           <div>
             <div className="bg-white rounded-2xl shadow-md p-6 sticky top-24">
-              <h3 className="font-[Inter] font-bold text-lg text-navy mb-4">
+              <h3 className="font-[Inter] font-normal text-xl text-navy mb-4">
                 {lang === 'it' ? 'Informazioni' : 'Informacje'}
               </h3>
               
@@ -288,7 +288,7 @@ export function TourDetailPage() {
 
         {/* Gallery */}
         <div className="mt-12">
-          <h2 className="font-[Inter] font-bold text-xl text-navy mb-6">{t('tour_gallery')}</h2>
+          <h2 className="font-[Inter] font-normal text-2xl text-navy mb-6">{t('tour_gallery')}</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
             {tour.imgs.map((img, idx) => (
               <button
