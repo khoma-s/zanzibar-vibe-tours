@@ -5,15 +5,22 @@ import Lightbox, { useLightbox } from '../components/Lightbox';
 import Loading from '../components/Loading';
 import { ArrowLeft, MapPin, Clock, Users, Star, Filter } from 'lucide-react';
 
+// Import all tour images at build time
+const tourImageModules = import.meta.glob('/public/images/tours/*/*.{jpg,jpeg,png,webp}', { eager: true });
+
 interface Tour {
   tour_id: string;
   img_title: string;
-  imgs: string[];
+  imgs: string;
   info: string;
   price: number;
   currency: string;
   title: string;
   short_desc: string;
+  key_points: string;
+  duration: string;
+  group: string;
+  location: string;
 }
 
 // Tours List Page
@@ -142,14 +149,26 @@ export function TourDetailPage() {
   const { tour_id } = useParams();
   const [tour, setTour] = useState<Tour | null>(null);
   const [whatsapp, setWhatsapp] = useState<string>('');
-  const lightbox = useLightbox(tour?.imgs || []);
+  const [tourImages, setTourImages] = useState<string[]>([]);
+  const lightbox = useLightbox(tourImages);
+
+  // Get images from tour folder
+  const getTourImages = (folderPath: string): string[] => {
+    return Object.keys(tourImageModules)
+      .map(path => path.replace('/public', ''))
+      .filter(path => path.startsWith(folderPath) && !path.includes('title.jpg'))
+      .sort();
+  };
 
   useEffect(() => {
     fetch(`/data/${lang}/tours.json`)
       .then(r => r.json())
       .then((data: Tour[]) => {
         const found = data.find(t => t.tour_id === tour_id);
-        if (found) setTour(found);
+        if (found) {
+          setTour(found);
+          setTourImages(getTourImages(found.imgs));
+        }
       })
       .catch(() => {});
     
@@ -220,22 +239,10 @@ export function TourDetailPage() {
                   {lang === 'it' ? 'Punti salienti' : 'Najważniejsze punkty'}
                 </h3>
                 <ul className="space-y-2">
-                  {(lang === 'it' ? [
-                    'Guida locale esperta',
-                    'Trasporto incluso',
-                    'Pranzo tipico',
-                    'Attrezzatura fornita',
-                    'Foto ricordo incluse'
-                  ] : [
-                    'Doświadczony lokalny przewodnik',
-                    'Transport w cenie',
-                    'Tradycyjny obiad',
-                    'Sprzęt zapewniony',
-                    'Pamiątkowe zdjęcia w cenie'
-                  ]).map((item, idx) => (
+                  {tour.key_points.split(',').map((item, idx) => (
                     <li key={idx} className="flex items-center gap-2 text-navy/70">
                       <span className="w-2 h-2 rounded-full bg-teal flex-shrink-0" />
-                      {item}
+                      {item.trim()}
                     </li>
                   ))}
                 </ul>
@@ -255,21 +262,21 @@ export function TourDetailPage() {
                   <Clock size={18} className="text-teal" />
                   <div>
                     <div className="text-navy/50 text-xs">{lang === 'it' ? 'Durata' : 'Czas trwania'}</div>
-                    <div className="font-semibold text-navy">{lang === 'it' ? '1-3 giorni' : '1-3 dni'}</div>
+                    <div className="font-semibold text-navy">{tour.duration}</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 text-sm">
                   <Users size={18} className="text-teal" />
                   <div>
                     <div className="text-navy/50 text-xs">{lang === 'it' ? 'Gruppo' : 'Grupa'}</div>
-                    <div className="font-semibold text-navy">{lang === 'it' ? '2-10 persone' : '2-10 osób'}</div>
+                    <div className="font-semibold text-navy">{tour.group}</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 text-sm">
                   <MapPin size={18} className="text-teal" />
                   <div>
                     <div className="text-navy/50 text-xs">{lang === 'it' ? 'Località' : 'Lokalizacja'}</div>
-                    <div className="font-semibold text-navy">Zanzibar, Tanzania</div>
+                    <div className="font-semibold text-navy">{tour.location}</div>
                   </div>
                 </div>
               </div>
@@ -290,7 +297,7 @@ export function TourDetailPage() {
         <div className="mt-12">
           <h2 className="font-[Inter] font-normal text-2xl text-navy mb-6">{t('tour_gallery')}</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-            {tour.imgs.map((img, idx) => (
+            {tourImages.map((img, idx) => (
               <button
                 key={idx}
                 onClick={() => lightbox.open(idx)}
@@ -300,9 +307,6 @@ export function TourDetailPage() {
                   src={img}
                   alt={`${tour.title} ${idx + 1}`}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = `https://picsum.photos/400/300?random=${tour.tour_id}${idx}`;
-                  }}
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center">
                   <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 text-navy px-3 py-1.5 rounded-full text-xs font-semibold">
@@ -317,7 +321,7 @@ export function TourDetailPage() {
 
       {lightbox.isOpen && (
         <Lightbox
-          images={tour.imgs}
+          images={tourImages}
           currentIndex={lightbox.currentIndex}
           onClose={lightbox.close}
           onNext={lightbox.next}
