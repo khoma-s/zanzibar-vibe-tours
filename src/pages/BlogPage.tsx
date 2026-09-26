@@ -62,6 +62,14 @@ export default function BlogPage() {
     return colors[category] || 'bg-navy/10 text-navy/70';
   };
 
+  // Parse Markdown to HTML
+  const parseMarkdown = (text: string) => {
+    return text
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*(.*?)\*/g, '<em>$1</em>')
+      .replace(/\n/g, '<br/>');
+  };
+
   if (posts.length === 0) {
     return <Loading />;
   }
@@ -146,9 +154,12 @@ export default function BlogPage() {
                     </h3>
 
                     {/* Preview */}
-                    <p className="text-navy/50 text-sm line-clamp-2 mb-3">
-                      {post.text.substring(0, 150)}...
-                    </p>
+                    <p 
+                      className="text-navy/50 text-sm line-clamp-2 mb-3"
+                      dangerouslySetInnerHTML={{
+                        __html: parseMarkdown(post.text.substring(0, 150)) + '...'
+                      }}
+                    />
 
                     {/* Read more */}
                     <span className="inline-flex items-center gap-1 text-teal text-sm font-semibold group-hover:gap-2 transition-all">
@@ -219,10 +230,7 @@ export default function BlogPage() {
                 <p 
                   className="text-navy/80 leading-relaxed text-base whitespace-pre-line"
                   dangerouslySetInnerHTML={{
-                    __html: selectedPost.text
-                      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                      .replace(/\*(.*?)\*/g, '<em>$1</em>')
-                      .replace(/\n/g, '<br/>')
+                    __html: parseMarkdown(selectedPost.text)
                   }}
                 />
               </div>
