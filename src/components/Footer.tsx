@@ -39,16 +39,16 @@ export default function Footer() {
           <div>
             <div className="mb-4">
               <img 
-                src="/images/logo.png" 
+                src="/images/logo_in_line.png" 
                 alt="Zanzibar Vibe Tours" 
-                className="w-10 h-10 rounded-full object-cover"
+                className="w-50 h-20 rounded-md object-cover"
                 onError={(e) => {
                   (e.target as HTMLImageElement).style.display = 'none';
                 }}
               />
             </div>
             <p className="text-cream/60 text-sm leading-relaxed mb-5">
-              {t('footer_desc')}
+              {t('footer_desc')}<br /><br />{t('follow_us')}
             </p>
             {/* Social */}
             {contacts && (
