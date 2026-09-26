@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useLang } from '../context/LangContext';
 import Lightbox, { useLightbox } from '../components/Lightbox';
 import Loading from '../components/Loading';
-import { ArrowLeft, MapPin, Clock, Users, Star, Filter } from 'lucide-react';
+import { ArrowLeft, MapPin, Clock, Users, Filter } from 'lucide-react';
 
 // Import all tour images at build time (with error handling)
 let tourImageModules: Record<string, unknown> = {};
@@ -140,10 +140,6 @@ export function ToursListPage() {
                   <div className="flex items-center gap-1">
                     <Users size={14} className="text-teal" />
                     <span>{tour.group}</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Star size={14} className="text-orange fill-orange" />
-                    <span>5.0</span>
                   </div>
                 </div>
 
