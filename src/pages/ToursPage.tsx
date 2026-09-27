@@ -49,14 +49,26 @@ export function ToursListPage() {
     fetch(`/data/${lang}/tours.json`)
       .then(r => {
         if (!r.ok) throw new Error(`HTTP error! status: ${r.status}`);
-        return r.json();
+        return r.text();
       })
-      .then((data: Tour[]) => {
-        console.log('Tours loaded:', data);
-        setTours(data);
+      .then(text => {
+        try {
+          const data = JSON.parse(text);
+          if (Array.isArray(data)) {
+            setTours(data);
+          } else {
+            console.error('Tours data is not an array:', data);
+            setTours([]);
+          }
+        } catch (e) {
+          console.error('Invalid JSON in tours.json:', e);
+          console.error('Raw content:', text);
+          setTours([]);
+        }
       })
       .catch(err => {
         console.error('Error loading tours:', err);
+        setTours([]);
       });
   }, [lang]);
 
@@ -233,16 +245,18 @@ export function TourDetailPage() {
           </div>
         </div>
 
-        {/* Main Image */}
-        <div className="rounded-2xl overflow-hidden shadow-lg mb-8">
-          <img
-            src={tour.img_title}
-            alt={tour.title}
-            className="w-full h-64 sm:h-96 object-cover"
-            onError={(e) => {
-              (e.target as HTMLImageElement).src = `https://picsum.photos/1200/600?random=${tour.tour_id}`;
-            }}
-          />
+        {/* Main Image with Decorative Frame */}
+        <div className="bg-gradient-to-br from-navy to-teal/80 rounded-2xl shadow-lg px-[10%] py-[3px] mb-8">
+          <div className="rounded-xl overflow-hidden">
+            <img
+              src={tour.img_title}
+              alt={tour.title}
+              className="w-full h-64 sm:h-96 object-cover"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = `https://picsum.photos/1200/600?random=${tour.tour_id}`;
+              }}
+            />
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
