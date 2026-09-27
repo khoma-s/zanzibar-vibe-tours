@@ -245,16 +245,18 @@ export function TourDetailPage() {
           </div>
         </div>
 
-        {/* Main Image */}
-        <div className="rounded-2xl overflow-hidden shadow-lg mb-8">
-          <img
-            src={tour.img_title}
-            alt={tour.title}
-            className="w-full h-64 sm:h-96 object-cover"
-            onError={(e) => {
-              (e.target as HTMLImageElement).src = `https://picsum.photos/1200/600?random=${tour.tour_id}`;
-            }}
-          />
+        {/* Main Image with Decorative Frame */}
+        <div className="bg-gradient-to-br from-navy to-teal/80 rounded-2xl shadow-lg px-[10%] py-[3px] mb-8">
+          <div className="rounded-xl overflow-hidden">
+            <img
+              src={tour.img_title}
+              alt={tour.title}
+              className="w-full h-64 sm:h-96 object-cover"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = `https://picsum.photos/1200/600?random=${tour.tour_id}`;
+              }}
+            />
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
