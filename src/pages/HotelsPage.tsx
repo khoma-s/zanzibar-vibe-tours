@@ -89,7 +89,7 @@ export default function HotelsPage() {
                 </button>
 
                 {/* Content */}
-                <div className="p-6">
+                <div className="p-6 flex flex-col h-full">
                   <h3 className="font-[Pacifico] text-xl text-navy mb-3 flex items-center gap-2">
                     <Hotel size={18} className="text-teal" />
                     {hotel.name}
@@ -102,7 +102,7 @@ export default function HotelsPage() {
                   </p>
 
                   {/* Key Points */}
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="flex flex-wrap gap-2 mb-4 mt-auto">
                     {hotel.key_points.split(',').map((point, idx) => (
                       <div key={idx} className="flex items-center gap-1 bg-cream/50 rounded-full px-2.5 py-1 text-xs text-navy/60">
                         <Star size={12} className="text-teal" />
