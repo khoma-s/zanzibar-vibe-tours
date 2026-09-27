@@ -67,7 +67,7 @@ export default function HotelsPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {hotels.map((hotel) => {
             return (
-              <div key={hotel.hotel_id} className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group">
+              <div key={hotel.hotel_id} className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group flex flex-col">
                 {/* Image */}
                 <button
                   onClick={() => openGallery(hotel)}
@@ -89,7 +89,7 @@ export default function HotelsPage() {
                 </button>
 
                 {/* Content */}
-                <div className="p-6 flex flex-col h-full">
+                <div className="p-6 flex flex-col flex-1">
                   <h3 className="font-[Pacifico] text-xl text-navy mb-3 flex items-center gap-2">
                     <Hotel size={18} className="text-teal" />
                     {hotel.name}
