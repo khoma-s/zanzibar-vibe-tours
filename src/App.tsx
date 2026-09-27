@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { LangProvider } from './context/LangContext';
+import { LangProvider, useLang } from './context/LangContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
@@ -14,6 +14,12 @@ import HotelsPage from './pages/HotelsPage';
 import GalleryPage from './pages/GalleryPage';
 import BlogPage from './pages/BlogPage';
 import NotFoundPage from './pages/NotFoundPage';
+
+// Smart redirect based on language
+function SmartRedirect() {
+  const { lang } = useLang();
+  return <Navigate to={`/${lang}/`} replace />;
+}
 
 function Layout({ children, seoTitle, seoDesc }: { children: React.ReactNode; seoTitle?: string; seoDesc?: string }) {
   return (
@@ -43,8 +49,8 @@ function AppContent() {
 
   return (
     <Routes>
-      {/* Default redirect */}
-      <Route path="/" element={<Navigate to="/it/" replace />} />
+      {/* Smart redirect based on language */}
+      <Route path="/" element={<SmartRedirect />} />
 
       {/* Italian routes */}
       <Route path="/it/" element={<Layout><HomePage /></Layout>} />
