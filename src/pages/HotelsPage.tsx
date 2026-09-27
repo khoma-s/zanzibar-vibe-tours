@@ -67,11 +67,11 @@ export default function HotelsPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {hotels.map((hotel) => {
             return (
-              <div key={hotel.hotel_id} className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group flex flex-col">
+              <div key={hotel.hotel_id} className="bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group flex flex-col">
                 {/* Image */}
                 <button
                   onClick={() => openGallery(hotel)}
-                  className="w-full h-56 relative overflow-hidden cursor-pointer"
+                  className="w-full h-56 relative overflow-hidden cursor-pointer rounded-t-2xl"
                 >
                   <img
                     src={`${hotel.imgs}1.jpg`}
@@ -89,7 +89,7 @@ export default function HotelsPage() {
                 </button>
 
                 {/* Content */}
-                <div className="p-6 flex flex-col flex-1">
+                <div className="p-6 flex flex-col grow">
                   <h3 className="font-[Pacifico] text-xl text-navy mb-3 flex items-center gap-2">
                     <Hotel size={18} className="text-teal" />
                     {hotel.name}
@@ -101,8 +101,11 @@ export default function HotelsPage() {
                       : hotel.odescription}
                   </p>
 
+                  {/* Spacer */}
+                  <div className="flex-1"></div>
+
                   {/* Key Points */}
-                  <div className="flex flex-wrap gap-2 mb-4 mt-auto">
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {hotel.key_points.split(',').map((point, idx) => (
                       <div key={idx} className="flex items-center gap-1 bg-cream/50 rounded-full px-2.5 py-1 text-xs text-navy/60">
                         <Star size={12} className="text-teal" />
