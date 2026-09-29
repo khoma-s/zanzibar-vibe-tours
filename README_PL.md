@@ -1,7 +1,3 @@
---- README_PL.md (原始)
-
-
-+++ README_PL.md (修改后)
 # 🌴 Zanzibar Vibe Tours - Dokumentacja dla użytkownika
 
 ## 📋 Spis treści
@@ -58,7 +54,7 @@ Ten plik zawiera wszystkie dane kontaktowe używane na całej stronie.
 
 ```json
 {
-  "tel": "+39 347 584 9637",
+  "tel": "+255 777 123 456",
   "email": "info@zanzibarvibetours.com",
   "whatsapp": "393475849637",
   "address": "Zanzibar, Tanzania",
@@ -580,12 +576,12 @@ Aby przetestować responsywność, dodaj `?test=1` do URL lub naciśnij `Ctrl+Sh
 
 Jeśli masz pytania lub problemy:
 
-**Email:** info@zanzibarvibetours.com
-**WhatsApp:** +255 777 123 456
+**Email:** info@zanzibarvibetours.com  
+**WhatsApp:** +255 777 123 456  
 **Telefon:** +255 777 123 456
 
 ---
 
-**Ostatnia aktualizacja:** 2026-01-XX
-**Wersja dokumentu:** 2.0
+**Ostatnia aktualizacja:** 2026-01-XX  
+**Wersja dokumentu:** 2.0  
 **Język:** Polski

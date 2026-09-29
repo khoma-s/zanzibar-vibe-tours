@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="it">
+<html lang="pl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,6 +7,16 @@
     <meta name="description" content="Zanzibar Vibe Tours — Tour indimenticabili a Zanzibar. Scopri le nostre escursioni, hotel, galleria e blog. Prenota la tua avventura!" />
     <meta name="keywords" content="Zanzibar, tours, hotel, viaggi, Tanzania, Stone Town, snorkeling, spiagge, wycieczka, hotele" />
     <meta name="author" content="Zanzibar Vibe Tours" />
+    
+    <!-- Language detection script - runs before React to set correct lang attribute -->
+    <script>
+      (function() {
+        var savedLang = localStorage.getItem('zv_lang');
+        var browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+        var lang = savedLang || (browserLang.startsWith('it') ? 'it' : 'pl');
+        document.documentElement.lang = lang;
+      })();
+    </script>
     
     <!-- Open Graph -->
     <meta property="og:title" content="Zanzibar Vibe Tours" />
