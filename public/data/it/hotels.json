@@ -1,10 +1,10 @@
 [
   {
     "hotel_id": "hotel_01",
-    "name": "Zanzibar Beach Resort",
+    "name": "MAGIC BOUTIQUE HOTEL",
     "imgs": "/images/hotels/hotel_01/",
-    "odescription": "Resort 5 stelle sulla spiaggia di Nungwi. Camere con vista oceano, piscina infinity, spa e ristorante con cucina locale e internazionale.",
-    "key_points": "WiFi gratuito,Colazione inclusa,Piscina infinity,Ristorante"
+    "odescription": "BOUTIQUE HOTEL è un hotel ecologico a 4 stelle vicino a Matemwe, con sole 19 camere. Ispirato all'architettura africana e zanzibarina, offre camere spaziose di 35 m² con ampie verande, aria condizionata, ventilatori, zanzariere e bagni moderni.",
+    "key_points": "Posizione sulla spiaggia,WiFi gratuito,Camere con vista sull'oceano e sul giardino,Bar e ristorante"
   },
   {
     "hotel_id": "hotel_02",
@@ -15,9 +15,9 @@
   },
   {
     "hotel_id": "hotel_03",
-    "name": "Paje Ocean Lodge",
+    "name": "Casa Vicino all’Oceano",
     "imgs": "/images/hotels/hotel_03/",
-    "odescription": "Bungalow in legno sulla spiaggia di Paje, ideale per kitesurf. Atmosfera rilassata, bar sulla spiaggia e lezioni di kitesurf incluse.",
-    "key_points": "WiFi gratuito,Sulla spiaggia,Bar sulla spiaggia,Kitesurf"
+    "odescription": "La struttura si trova al primo piano e offre una sistemazione pratica per chi preferisce un soggiorno indipendente. I pasti non sono inclusi, permettendo agli ospiti di organizzarsi liberamente. La struttura non dispone di piscina.",
+    "key_points": "4 camere doppie con bagno privato,Soggiorno, cucina e balcone in comune,Vicino all'oceano,WiFi gratuito"
   }
 ]

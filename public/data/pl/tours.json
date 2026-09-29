@@ -3,15 +3,15 @@
     "tour_id": "001",
     "img_title": "/images/tours/001/title.jpg",
     "imgs": "/images/tours/001/",
-    "info": "Odkryj białe plaże i krystaliczne wody Zanzibaru z tym przewodnikiem. Odwiedzimy Stone Town, plantacje przypraw i najpiękniejsze plaże wyspy. Niezapomniane doświadczenie pełne kultury, natury i relaksu.",
-    "currency": "PLN",
-    "price": 6500,
-    "title": "Pełna Wycieczka po Zanzibarze",
-    "short_desc": "3 dni w Stone Town, wśród przypraw i rajskich plaż",
-    "key_points": "Doświadczony lokalny przewodnik,Transport w cenie,Tradycyjny obiad,Sprzęt zapewniony,Pamiątkowe zdjęcia w cenie",
-    "duration": "1-3 dni",
-    "group": "2-10 osób",
-    "location": "Zanzibar, Tanzania"
+    "info": "10 dni na Zanzibarze dla 2 osób w Magic Hotel 4* ze śniadaniami, transferem lotniskowym, 4 wycieczkami i opieką przewodnika. Kolacja sylwestrowa z muzyką dostępna za dodatkowe €120 dla 2 osób.",
+    "currency": "EUR",
+    "price": 3450,
+    "title": "Sylwester 2027 na Zanzibarze – Magic Hotel 4*",
+    "short_desc": "Powitaj Nowy Rok 2027 na Zanzibarze!",
+    "key_points": "Pakiet dla 2 osób – 10 dni,Pobyt w Magic Hotel 4*,Śniadania w cenie,Transfer z i na lotnisko,Opieka przewodnika turystycznego,Kolacja sylwestrowa z muzyką – dodatkowe €120 dla 2 osób,Prison Island + Nakupenda — całodniowa wycieczka z owocami oraz posiłkiem z ryb i owoców morza nad oceanem,Stone Town + Spice Tour — wycieczka półdniowa,Delfiny + Mnemba — wycieczka półdniowa,Nungwi Aquarium — wycieczka półdniowa",
+    "duration": "10 dni",
+    "group": "2-38 osób",
+    "location": "Matemwe, Zanzibar, Tanzania"
   },
   {
     "tour_id": "002",
@@ -22,7 +22,7 @@
     "price": 3150,
     "title": "Sylwester 2027 na Zanzibarze dla 2 osób",
     "short_desc": "Powitaj Nowy Rok 2027 na Zanzibarze!",
-    "key_points": "Pakiet dla 2 osób – 10 dni,Pobyt w Panga Hotel 3*,Wyżywienie HB w cenie,Transfer z i na lotnisko,Opieka przewodnika turystycznego,Kolacja sylwestrowa z muzyką,Prison Island + Nakupenda – całodniowa wycieczka,Stone Town + Spice Tour, Delfiny + Mnemba oraz Nungwi Aquarium – 3 wycieczki półdniowe,Owoce oraz posiłek z owocami morza nad oceanem podczas całodniowej wycieczki",
+    "key_points": "Pakiet dla 2 osób – 10 dni,Pobyt w Panga Hotel 3*,Wyżywienie HB w cenie,Transfer z i na lotnisko,Opieka przewodnika turystycznego,Kolacja sylwestrowa z muzyką,Prison Island + Nakupenda — całodniowa wycieczka z owocami oraz posiłkiem z ryb i owoców morza nad oceanem,Stone Town + Spice Tour — wycieczka półdniowa,Delfiny + Mnemba — wycieczka półdniowa,Nungwi Aquarium — wycieczka półdniowa",
     "duration": "10 dni",
     "group": "2-30 osób",
     "location": "Matemwe, Zanzibar, Tanzania"
@@ -31,14 +31,14 @@
     "tour_id": "003",
     "img_title": "/images/tours/003/title.jpg",
     "imgs": "/images/tours/003/",
-    "info": "Zanurz się w kulturze suahili odwiedzając Stone Town, dziedzictwo UNESCO. Spacer po historycznych zaułkach, targach przypraw, domu rodzinnym Freddiego Mercury'ego i pałacu Sułtana.",
-    "currency": "PLN",
-    "price": 1950,
-    "title": "Kulturalne Stone Town",
-    "short_desc": "Wycieczka kulturalna po historycznym sercu Zanzibaru",
-    "key_points": "Przewodnik historyczny,Wstęp do muzeów,Tradycyjny lunch,Transport klimatyzowany,Pamiątki lokalne",
-    "duration": "1 dzień",
+    "info": "10-dniowy pakiet dla 2 osób z zakwaterowaniem w domu z pokojami dwuosobowymi i prywatnymi łazienkami. W cenie kolacja sylwestrowa, transfer lotniskowy, opieka podczas całego pobytu oraz przewodnik.",
+    "currency": "EUR",
+    "price": 1500,
+    "title": "Sylwester 2027 na Zanzibarze dla 2 osób",
+    "short_desc": "Powitaj Nowy Rok 2027 na Zanzibarze!",
+    "key_points": "Pakiet 10-dniowy dla 2 osób,4 pokoje dwuosobowe z prywatnymi łazienkami,Wspólny salon kuchnia i balkon,Kolacja sylwestrowa w cenie,Transfer z/na lotnisko,Prison Island + Nakupenda — całodniowa wycieczka z owocami oraz posiłkiem z ryb i owoców morza nad oceanem,Stone Town + Spice Tour — wycieczka półdniowa,Delfiny + Mnemba — wycieczka półdniowa,Nungwi Aquarium — wycieczka półdniowa",
+    "duration": "10 dni",
     "group": "2-8 osób",
-    "location": "Stone Town"
+    "location": "Matemwe, Zanzibar, Tanzania"
   }
 ]
