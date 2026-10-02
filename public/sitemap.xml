@@ -7,7 +7,7 @@
     <loc>https://zanzibar-vibetours.eu/it/</loc>
     <xhtml:link rel="alternate" hreflang="it" href="https://zanzibar-vibetours.eu/it/" />
     <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibar-vibetours.eu/pl/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://zanzibar-vibetours.eu/it/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zanzibar-vibetours.eu/pl/" />
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -52,7 +52,7 @@
     <loc>https://zanzibar-vibetours.eu/pl/</loc>
     <xhtml:link rel="alternate" hreflang="it" href="https://zanzibar-vibetours.eu/it/" />
     <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibar-vibetours.eu/pl/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://zanzibar-vibetours.eu/it/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zanzibar-vibetours.eu/pl/" />
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>

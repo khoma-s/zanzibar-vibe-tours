@@ -37,7 +37,7 @@ export default function SEO({ title, description }: SEOProps) {
     // Update canonical
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) {
-      const baseUrl = 'https://zanzibarvibetours.com';
+      const baseUrl = 'https://zanzibar-vibetours.eu';
       canonical.setAttribute('href', `${baseUrl}${location.pathname}`);
     }
 
@@ -47,7 +47,7 @@ export default function SEO({ title, description }: SEOProps) {
     const hreflangDefault = document.querySelector('link[hreflang="x-default"]');
     
     if (hreflangIt && hreflangPl && hreflangDefault) {
-      const baseUrl = 'https://zanzibarvibetours.com';
+      const baseUrl = 'https://zanzibar-vibetours.eu';
       const itPath = location.pathname.replace(/^\/pl/, '/it');
       const plPath = location.pathname.replace(/^\/it/, '/pl');
       

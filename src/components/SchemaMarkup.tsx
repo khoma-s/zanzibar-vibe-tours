@@ -40,8 +40,8 @@ export default function SchemaMarkup({ type, data }: SchemaProps) {
 // Predefined schemas for common use cases
 export const organizationSchema = {
   name: 'Zanzibar Vibe Tours',
-  url: 'https://zanzibarvibetours.com',
-  logo: 'https://zanzibarvibetours.com/images/logo.png',
+  url: 'https://zanzibar-vibetours.eu',
+  logo: 'https://zanzibar-vibetours.eu/images/logo.png',
   description: 'Tour operator specializzato in viaggi a Zanzibar per clienti italiani e polacchi.',
   address: {
     '@type': 'PostalAddress',
@@ -50,14 +50,16 @@ export const organizationSchema = {
   },
   contactPoint: {
     '@type': 'ContactPoint',
-    telephone: '+255-777-123-456',
+    telephone: '+39 347 584 9637',
     contactType: 'customer service',
-    email: 'info@zanzibarvibetours.com',
+    email: 'kuzdra.violetta@gmail.com',
     availableLanguage: ['Italian', 'Polish', 'English'],
   },
   sameAs: [
-    'https://www.facebook.com/zanzibarvibetours',
-    'https://www.instagram.com/zanzibarvibetours',
+    'https://wa.me/393475849637',
+    'https://www.facebook.com/1172238702643016',
+    'https://www.instagram.com/kuzdravioletta',
+    'https://www.tiktok.com/@violetta.kuzdra',
   ],
 };
 
@@ -99,7 +101,7 @@ export const touristTripSchema = (tour: {
   provider: {
     '@type': 'Organization',
     name: 'Zanzibar Vibe Tours',
-    url: 'https://zanzibarvibetours.com',
+    url: 'https://zanzibar-vibetours.eu',
   },
 });
 
@@ -151,11 +153,11 @@ export const articleSchema = (article: {
     name: 'Zanzibar Vibe Tours',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://zanzibarvibetours.com/images/logo.png',
+      url: 'https://zanzibar-vibetours.eu/images/logo.png',
     },
   },
   mainEntityOfPage: {
     '@type': 'WebPage',
-    '@id': 'https://zanzibarvibetours.com/blog',
+    '@id': 'https://zanzibar-vibetours.eu/blog',
   },
 });
