@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://zanzibarvibetours.com/sitemap.xml
+Sitemap: https://zanzibar-vibetours.eu/sitemap.xml
 
 # Disallow admin or private areas (if any)
 # Disallow: /api/
