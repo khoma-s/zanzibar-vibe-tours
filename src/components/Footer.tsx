@@ -107,7 +107,7 @@ export default function Footer() {
         {/* Bottom */}
         <div className="border-t border-white/8 pt-6 text-center">
           <p className="text-cream/40 text-xs">
-            © 2026 Zanzibar Vibe Tours. {t('all_rights')}.
+            © {new Date().getFullYear()} Zanzibar Vibe Tours. {t('all_rights')}.
           </p>
         </div>
       </div>
