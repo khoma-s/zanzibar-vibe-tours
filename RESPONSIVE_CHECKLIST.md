@@ -9,7 +9,7 @@ npm run dev
 
 ### 2. Откройте в браузере
 ```
-http://localhost:5173/?test=1
+http://localhost:3000/?test=1
 ```
 
 ### 3. Или используйте DevTools
@@ -315,7 +315,7 @@ http://localhost:5173/?test=1
 ---
 
 **Контакты:**
-- Email: info@zanzibarvibetours.com
-- GitHub: [ссылка]
+- Email: khomyak_slava@gmail.com
+- WhatsApp/Tel: +48 608 185 112
 
-**Последнее обновление:** 2026-01-XX
+**Последнее обновление:** 2026-10-02

@@ -382,7 +382,7 @@ public/images/
 
 ```json
 {
-  "tel": "+255 777 123 456",
+  "tel": "39 347 584 9637",
   "email": "new-email@example.com",
   "whatsapp": "393475849637",
   "address": "New Address",
@@ -577,12 +577,12 @@ setPosts(shuffled.slice(0, 3));
 
 Если у вас возникли вопросы или проблемы:
 
-**Email:** info@zanzibarvibetours.com  
-**WhatsApp:** +255 777 123 456  
-**Телефон:** +255 777 123 456
+**Email:** khomyak_slava@gmail.com  
+**WhatsApp:** +48 608 185 112  
+**Телефон:** +48 608 185 112
 
 ---
 
-**Последнее обновление:** 2026-01-XX  
+**Последнее обновление:** 2026-10-02  
 **Версия документа:** 2.0  
 **Язык:** Русский

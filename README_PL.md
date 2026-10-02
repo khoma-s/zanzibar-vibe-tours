@@ -54,7 +54,7 @@ Ten plik zawiera wszystkie dane kontaktowe używane na całej stronie.
 
 ```json
 {
-  "tel": "+255 777 123 456",
+  "tel": "39 347 584 9637",
   "email": "info@zanzibarvibetours.com",
   "whatsapp": "393475849637",
   "address": "Zanzibar, Tanzania",
@@ -576,12 +576,12 @@ Aby przetestować responsywność, dodaj `?test=1` do URL lub naciśnij `Ctrl+Sh
 
 Jeśli masz pytania lub problemy:
 
-**Email:** info@zanzibarvibetours.com  
-**WhatsApp:** +255 777 123 456  
-**Telefon:** +255 777 123 456
+**Email:** khomyak_slava@gmail.com  
+**WhatsApp:** +48 608 185 112  
+**Telefon:** +48 608 185 112
 
 ---
 
-**Ostatnia aktualizacja:** 2026-01-XX  
+**Ostatnia aktualizacja:** 2026-10-02  
 **Wersja dokumentu:** 2.0  
 **Język:** Polski

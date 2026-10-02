@@ -106,7 +106,7 @@ npm run build    # Сборка для продакшена
 npm run dev
 
 # Откройте с тестовой панелью
-http://localhost:5173/?test=1
+http://localhost:3000/?test=1
 
 # Или нажмите Ctrl+Shift+T
 ```
