@@ -91,7 +91,7 @@ export function LangProvider({ children }: { children: ReactNode }) {
     const saved = localStorage.getItem('zv_lang');
     if (saved === 'it' || saved === 'pl') return saved;
     const browserLang = (navigator.language || '').toLowerCase();
-    return browserLang.startsWith('it') ? 'it' : 'pl';
+    return browserLang.startsWith('pl') ? 'pl' : 'it';
   });
 
   useEffect(() => {

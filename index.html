@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pl">
+<html lang="it">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,7 +13,7 @@
       (function() {
         var savedLang = localStorage.getItem('zv_lang');
         var browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-        var lang = savedLang || (browserLang.startsWith('it') ? 'it' : 'pl');
+        var lang = savedLang || (browserLang.startsWith('pl') ? 'pl' : 'it');
         document.documentElement.lang = lang;
       })();
     </script>
