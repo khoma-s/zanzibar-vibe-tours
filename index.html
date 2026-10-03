@@ -13,7 +13,8 @@
       (function() {
         var savedLang = localStorage.getItem('zv_lang');
         var browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-        var lang = savedLang || (browserLang.startsWith('pl') ? 'pl' : 'it');
+        var pathMatch = window.location.pathname.match(/^\/(it|pl)(?:\/|$)/);
+        var lang = (pathMatch && pathMatch[1]) || savedLang || (browserLang.startsWith('pl') ? 'pl' : 'it');
         document.documentElement.lang = lang;
       })();
     </script>

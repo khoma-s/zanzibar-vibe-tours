@@ -1,4 +1,6 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useCallback, useContext, useState, useEffect, ReactNode } from 'react';
+import { useLocation } from 'react-router-dom';
+import { getLangFromPath } from '../utils/localizedRoutes';
 
 type Lang = 'it' | 'pl';
 
@@ -87,19 +89,23 @@ const translations: Record<string, Record<Lang, string>> = {
 const LangContext = createContext<LangContextType | undefined>(undefined);
 
 export function LangProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>(() => {
+  const location = useLocation();
+  const [selectedLang, setLangState] = useState<Lang>(() => {
+    const pathLang = getLangFromPath(window.location.pathname);
+    if (pathLang) return pathLang;
     const saved = localStorage.getItem('zv_lang');
     if (saved === 'it' || saved === 'pl') return saved;
     const browserLang = (navigator.language || '').toLowerCase();
     return browserLang.startsWith('pl') ? 'pl' : 'it';
   });
+  const lang = getLangFromPath(location.pathname) || selectedLang;
 
   useEffect(() => {
     localStorage.setItem('zv_lang', lang);
     document.documentElement.lang = lang;
   }, [lang]);
 
-  const setLang = (newLang: Lang) => setLangState(newLang);
+  const setLang = useCallback((newLang: Lang) => setLangState(newLang), []);
   const t = (key: string) => translations[key]?.[lang] || key;
 
   return (

@@ -80,10 +80,10 @@ function AppContent() {
 
 export default function App() {
   return (
-    <LangProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <LangProvider>
         <AppContent />
-      </BrowserRouter>
-    </LangProvider>
+      </LangProvider>
+    </BrowserRouter>
   );
 }

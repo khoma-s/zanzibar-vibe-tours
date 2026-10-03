@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useLang } from '../context/LangContext';
+import { getLocalizedPath, SupportedLang } from '../utils/localizedRoutes';
 import { Menu, X, Globe } from 'lucide-react';
 
 const navItems = [
@@ -18,6 +19,13 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [langDropdown, setLangDropdown] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const changeLanguage = (newLang: SupportedLang) => {
+    const nextPath = getLocalizedPath(location.pathname, newLang);
+    setLang(newLang);
+    navigate(`${nextPath}${location.search}${location.hash}`);
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -97,7 +105,7 @@ export default function Header() {
               {langDropdown && (
                 <div className="absolute right-0 top-full mt-2 bg-white rounded-xl shadow-2xl border border-navy/10 overflow-hidden min-w-[120px] animate-fadeIn">
                   <button
-                    onClick={() => setLang('it')}
+                    onClick={() => changeLanguage('it')}
                     className={`w-full px-4 py-2.5 text-left text-sm font-semibold transition-colors flex items-center gap-2 ${
                       lang === 'it' ? 'bg-teal/10 text-teal' : 'text-navy/70 hover:bg-navy/5'
                     }`}
@@ -105,7 +113,7 @@ export default function Header() {
                     <span>🇮🇹</span> Italiano
                   </button>
                   <button
-                    onClick={() => setLang('pl')}
+                    onClick={() => changeLanguage('pl')}
                     className={`w-full px-4 py-2.5 text-left text-sm font-semibold transition-colors flex items-center gap-2 ${
                       lang === 'pl' ? 'bg-teal/10 text-teal' : 'text-navy/70 hover:bg-navy/5'
                     }`}
@@ -155,7 +163,7 @@ export default function Header() {
                 {lang === 'it' ? 'Lingua:' : 'Język:'}
               </span>
               <button
-                onClick={() => setLang('it')}
+                onClick={() => changeLanguage('it')}
                 className={`px-3 py-1.5 rounded-lg text-sm font-bold transition-all ${
                   lang === 'it' ? 'bg-orange text-white' : 'text-white/50 hover:text-white hover:bg-white/5'
                 }`}
@@ -163,7 +171,7 @@ export default function Header() {
                 🇮🇹 IT
               </button>
               <button
-                onClick={() => setLang('pl')}
+                onClick={() => changeLanguage('pl')}
                 className={`px-3 py-1.5 rounded-lg text-sm font-bold transition-all ${
                   lang === 'pl' ? 'bg-orange text-white' : 'text-white/50 hover:text-white hover:bg-white/5'
                 }`}
