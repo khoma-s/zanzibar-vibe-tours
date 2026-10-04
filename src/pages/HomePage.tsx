@@ -104,7 +104,7 @@ export default function HomePage() {
   }, [lang]);
 
   const features = lang === 'it' ? [
-    { icon: Compass, title: 'Tour autentiche', desc: 'Esperienze genuine lontano dalle masse turistiche' },
+    { icon: Compass, title: 'Tour autentici', desc: 'Esperienze genuine lontano dalle masse turistiche' },
     { icon: Shield, title: 'Assistenza 24/7', desc: 'Supporto continuo durante tutto il soggiorno' },
     { icon: Heart, title: 'Passione locale', desc: 'Guide locali che conoscono ogni angolo dell\'isola' },
     { icon: Star, title: 'L\'arte del viaggio personale', desc: 'Creati su misura in ogni dettaglio, perfettamente adattati al tuo ritmo e stile.' },
