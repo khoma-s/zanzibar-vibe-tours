@@ -11,6 +11,7 @@ interface HotelData {
   hotel_id: string;
   name: string;
   imgs: string;
+  images?: string[];
   odescription: string;
   key_points: string;
 }
@@ -45,7 +46,7 @@ export default function HotelsPage() {
 
   const openGallery = (hotel: HotelData) => {
     setSelectedHotel(hotel);
-    setHotelImages(getHotelImages(hotel.imgs));
+    setHotelImages(hotel.images?.length ? hotel.images : getHotelImages(hotel.imgs));
     lightbox.open(0);
   };
 

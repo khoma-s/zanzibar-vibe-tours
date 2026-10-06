@@ -17,6 +17,7 @@ interface Tour {
   tour_id: string;
   img_title: string;
   imgs: string;
+  images?: string[];
   info: string;
   price: number;
   currency: string;
@@ -202,7 +203,7 @@ export function TourDetailPage() {
         const found = data.find(t => t.tour_id === tour_id);
         if (found) {
           setTour(found);
-          setTourImages(getTourImages(found.imgs));
+          setTourImages(found.images?.length ? found.images : getTourImages(found.imgs));
         }
       })
       .catch(() => {});

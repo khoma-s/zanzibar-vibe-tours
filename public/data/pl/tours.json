@@ -40,5 +40,27 @@
     "duration": "10 dni",
     "group": "2-8 osób",
     "location": "Matemwe, Zanzibar, Tanzania"
+  },
+ {
+    "tour_id": "004",
+    "img_title": "/images/tours/004/title.jpg",
+    "imgs": "/images/tours/004/",
+    "images": [
+      "/images/tours/004/1.jpg",
+      "/images/tours/004/2.jpg",
+      "/images/tours/004/3.jpg",
+      "/images/tours/004/4.jpg",
+      "/images/tours/004/5.jpg",
+      "/images/tours/004/6.jpg"
+    ],
+    "info": "Pobyt w Malik Villa Matemwe z zakwaterowaniem w komfortowych pokojach z prywatnymi łazienkami i klimatyzacją. Na miejscu dostępne są restauracja, bar, ogród oraz atrakcje rekreacyjne. Transfer i wycieczki za dodatkową opłatą.",
+    "currency": "EUR",
+    "price": 37,
+    "title": "Pobyt w Malik Villa Matemwe",
+    "short_desc": "€ 37 na osobę, nocleg ze śniadaniem",
+    "key_points": "Basen zewnętrzny,Bezpłatne Wi-Fi,Darmowy parking,Restauracja Malik Villa,Willa ma 5 bungalow 2 osobowych z łazienkami prywatnymi,Jedno bungalo na 4 osoby z kuchnią prywatną i łazienką,Klimatyzacja,Transfer lotniskowy za dodatkową opłatą,Wycieczki do wyboru za dodatkową opłatą",
+    "duration": "od 5 dni",
+    "group": "1-11 osób",
+    "location": "Matemwe, Zanzibar, Tanzania"
   }
 ]

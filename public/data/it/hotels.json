@@ -19,5 +19,22 @@
     "imgs": "/images/hotels/hotel_03/",
     "odescription": "La struttura si trova al primo piano e offre una sistemazione pratica per chi preferisce un soggiorno indipendente. I pasti non sono inclusi, permettendo agli ospiti di organizzarsi liberamente. Nelle vicinanze si trovano il mercato locale e alcuni negozietti. La struttura non dispone di piscina.",
     "key_points": "4 camere doppie con bagno privato,Soggiorno, cucina e balcone in comune,Vicino all'oceano,WiFi gratuito"
+  },
+ {
+    "hotel_id": "hotel_04",
+    "name": "Malik Villa Vicino all’Oceano",
+    "imgs": "/images/hotels/hotel_04/",
+    "images": [
+      "/images/hotels/hotel_04/1.jpg",
+      "/images/hotels/hotel_04/2.jpg",
+      "/images/hotels/hotel_04/3.jpg",
+      "/images/hotels/hotel_04/4.jpg",
+      "/images/hotels/hotel_04/5.jpg",
+      "/images/hotels/hotel_04/6.jpg",
+      "/images/hotels/hotel_04/7.jpg",
+      "/images/hotels/hotel_04/8.jpg"
+    ],
+    "odescription": "Malik Villa Matemwe si trova a circa 15 minuti a piedi dal centro. Le camere dispongono di bagno privato, aria condizionata, patio e terrazza. Ogni alloggio include una cucina attrezzata. Transfer aeroportuali ed escursioni sono disponibili a pagamento.",
+    "key_points": "Piscina esterna,Wi-Fi gratuito,Parcheggio gratuito,Ristorante interno"
   }
 ]
