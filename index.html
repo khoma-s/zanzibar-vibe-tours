@@ -15,6 +15,10 @@
         var browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
         var lang = savedLang || (browserLang.startsWith('it') ? 'it' : 'pl');
         document.documentElement.lang = lang;
+        // Force HTTPS redirect for SEO
+        if (window.location.protocol === 'http:' && window.location.hostname !== 'localhost') {
+          window.location.href = 'https:' + window.location.href.substring(5);
+        }
       })();
     </script>
     

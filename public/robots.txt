@@ -1,7 +1,11 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://zanzibarvibetours.com/sitemap.xml
+# Sitemap
+Sitemap: https://zanzibar-vibetours.eu/sitemap.xml
+
+# Prefer HTTPS
+# Note: HTTP to HTTPS redirect is handled by .htaccess
 
 # Disallow admin or private areas (if any)
 # Disallow: /api/
