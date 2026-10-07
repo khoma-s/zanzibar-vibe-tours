@@ -1,0 +1,26 @@
+Options -MultiViews
+
+<IfModule mod_mime.c>
+    AddType application/xml .xml
+    AddType text/xml .xml
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Single canonical address:
+    # http://zanzibar-vibetours.eu/...     → https://zanzibar-vibetours.eu/...
+    # http://www.zanzibar-vibetours.eu/... → https://zanzibar-vibetours.eu/...
+    # https://www.zanzibar-vibetours.eu/... → https://zanzibar-vibetours.eu/...
+    RewriteCond %{HTTPS} !=on [OR]
+    RewriteCond %{HTTP_HOST} ^www\.zanzibar-vibetours\.eu$ [NC]
+    RewriteRule ^ https://zanzibar-vibetours.eu%{REQUEST_URI} [R=301,L,NE]
+
+    # Existing files and directories are passed through directly
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # React Router: save the original URL and submit the app
+    RewriteRule ^ index.html [L]
+</IfModule>
