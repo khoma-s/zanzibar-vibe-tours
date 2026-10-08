@@ -1,126 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-
-  <!-- Italian Pages -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://zanzibar-vibetours.eu/it/</loc>
-    <lastmod>2026-10-07</lastmod>
     <xhtml:link rel="alternate" hreflang="it" href="https://zanzibar-vibetours.eu/it/" />
     <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibar-vibetours.eu/pl/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://zanzibar-vibetours.eu/it/" />
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
   </url>
-
-  <url>
-    <loc>https://zanzibar-vibetours.eu/it/tour/</loc>
-    <lastmod>2026-10-07</lastmod>
-    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibar-vibetours.eu/it/tour/" />
-    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibar-vibetours.eu/pl/wycieczka/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://zanzibar-vibetours.eu/it/tour/" />
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://zanzibar-vibetours.eu/it/hotel/</loc>
-    <lastmod>2026-10-07</lastmod>
-    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibar-vibetours.eu/it/hotel/" />
-    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibar-vibetours.eu/pl/hotel/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://zanzibar-vibetours.eu/it/hotel/" />
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://zanzibar-vibetours.eu/it/galleria/</loc>
-    <lastmod>2026-10-07</lastmod>
-    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibar-vibetours.eu/it/galleria/" />
-    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibar-vibetours.eu/pl/galeria/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://zanzibar-vibetours.eu/it/galleria/" />
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://zanzibar-vibetours.eu/it/blog/</loc>
-    <lastmod>2026-10-07</lastmod>
-    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibar-vibetours.eu/it/blog/" />
-    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibar-vibetours.eu/pl/blog/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://zanzibar-vibetours.eu/it/blog/" />
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://zanzibar-vibetours.eu/it/chi-siamo/</loc>
-    <lastmod>2026-10-07</lastmod>
-    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibar-vibetours.eu/it/chi-siamo/" />
-    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibar-vibetours.eu/pl/o-nas/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://zanzibar-vibetours.eu/it/chi-siamo/" />
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <!-- Polish Pages -->
   <url>
     <loc>https://zanzibar-vibetours.eu/pl/</loc>
-    <lastmod>2026-10-07</lastmod>
     <xhtml:link rel="alternate" hreflang="it" href="https://zanzibar-vibetours.eu/it/" />
     <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibar-vibetours.eu/pl/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://zanzibar-vibetours.eu/it/" />
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
   </url>
-
   <url>
-    <loc>https://zanzibar-vibetours.eu/pl/wycieczka/</loc>
-    <lastmod>2026-10-07</lastmod>
-    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibar-vibetours.eu/it/tour/" />
-    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibar-vibetours.eu/pl/wycieczka/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://zanzibar-vibetours.eu/it/tour/" />
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://zanzibar-vibetours.eu/it/tour</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibar-vibetours.eu/it/tour" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibar-vibetours.eu/pl/wycieczka" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zanzibar-vibetours.eu/it/tour" />
   </url>
-
   <url>
-    <loc>https://zanzibar-vibetours.eu/pl/hotel/</loc>
-    <lastmod>2026-10-07</lastmod>
-    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibar-vibetours.eu/it/hotel/" />
-    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibar-vibetours.eu/pl/hotel/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://zanzibar-vibetours.eu/it/hotel/" />
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://zanzibar-vibetours.eu/pl/wycieczka</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibar-vibetours.eu/it/tour" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibar-vibetours.eu/pl/wycieczka" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zanzibar-vibetours.eu/it/tour" />
   </url>
-
   <url>
-    <loc>https://zanzibar-vibetours.eu/pl/galeria/</loc>
-    <lastmod>2026-10-07</lastmod>
-    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibar-vibetours.eu/it/galleria/" />
-    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibar-vibetours.eu/pl/galeria/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://zanzibar-vibetours.eu/it/galleria/" />
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://zanzibar-vibetours.eu/it/hotel</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibar-vibetours.eu/it/hotel" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibar-vibetours.eu/pl/hotel" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zanzibar-vibetours.eu/it/hotel" />
   </url>
-
   <url>
-    <loc>https://zanzibar-vibetours.eu/pl/blog/</loc>
-    <lastmod>2026-10-07</lastmod>
-    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibar-vibetours.eu/it/blog/" />
-    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibar-vibetours.eu/pl/blog/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://zanzibar-vibetours.eu/it/blog/" />
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://zanzibar-vibetours.eu/pl/hotel</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibar-vibetours.eu/it/hotel" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibar-vibetours.eu/pl/hotel" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zanzibar-vibetours.eu/it/hotel" />
   </url>
-
   <url>
-    <loc>https://zanzibar-vibetours.eu/pl/o-nas/</loc>
-    <lastmod>2026-10-04</lastmod>
-    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibar-vibetours.eu/it/chi-siamo/" />
-    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibar-vibetours.eu/pl/o-nas/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://zanzibar-vibetours.eu/it/chi-siamo/" />
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <loc>https://zanzibar-vibetours.eu/it/galleria</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibar-vibetours.eu/it/galleria" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibar-vibetours.eu/pl/galeria" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zanzibar-vibetours.eu/it/galleria" />
   </url>
-
+  <url>
+    <loc>https://zanzibar-vibetours.eu/pl/galeria</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibar-vibetours.eu/it/galleria" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibar-vibetours.eu/pl/galeria" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zanzibar-vibetours.eu/it/galleria" />
+  </url>
+  <url>
+    <loc>https://zanzibar-vibetours.eu/it/blog</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibar-vibetours.eu/it/blog" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibar-vibetours.eu/pl/blog" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zanzibar-vibetours.eu/it/blog" />
+  </url>
+  <url>
+    <loc>https://zanzibar-vibetours.eu/pl/blog</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibar-vibetours.eu/it/blog" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibar-vibetours.eu/pl/blog" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zanzibar-vibetours.eu/it/blog" />
+  </url>
+  <url>
+    <loc>https://zanzibar-vibetours.eu/it/chi-siamo</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibar-vibetours.eu/it/chi-siamo" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibar-vibetours.eu/pl/o-nas" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zanzibar-vibetours.eu/it/chi-siamo" />
+  </url>
+  <url>
+    <loc>https://zanzibar-vibetours.eu/pl/o-nas</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibar-vibetours.eu/it/chi-siamo" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibar-vibetours.eu/pl/o-nas" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zanzibar-vibetours.eu/it/chi-siamo" />
+  </url>
+  <url>
+    <loc>https://zanzibar-vibetours.eu/it/tour/001</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibar-vibetours.eu/it/tour/001" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibar-vibetours.eu/pl/wycieczka/001" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zanzibar-vibetours.eu/it/tour/001" />
+  </url>
+  <url>
+    <loc>https://zanzibar-vibetours.eu/pl/wycieczka/001</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibar-vibetours.eu/it/tour/001" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibar-vibetours.eu/pl/wycieczka/001" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zanzibar-vibetours.eu/it/tour/001" />
+  </url>
+  <url>
+    <loc>https://zanzibar-vibetours.eu/it/tour/002</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibar-vibetours.eu/it/tour/002" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibar-vibetours.eu/pl/wycieczka/002" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zanzibar-vibetours.eu/it/tour/002" />
+  </url>
+  <url>
+    <loc>https://zanzibar-vibetours.eu/pl/wycieczka/002</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibar-vibetours.eu/it/tour/002" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibar-vibetours.eu/pl/wycieczka/002" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zanzibar-vibetours.eu/it/tour/002" />
+  </url>
+  <url>
+    <loc>https://zanzibar-vibetours.eu/it/tour/003</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibar-vibetours.eu/it/tour/003" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibar-vibetours.eu/pl/wycieczka/003" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zanzibar-vibetours.eu/it/tour/003" />
+  </url>
+  <url>
+    <loc>https://zanzibar-vibetours.eu/pl/wycieczka/003</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibar-vibetours.eu/it/tour/003" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibar-vibetours.eu/pl/wycieczka/003" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zanzibar-vibetours.eu/it/tour/003" />
+  </url>
 </urlset>

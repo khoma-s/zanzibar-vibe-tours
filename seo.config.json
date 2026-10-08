@@ -1,0 +1,77 @@
+{
+  "origin": "https://zanzibar-vibetours.eu",
+  "pages": {
+    "home": {
+      "it": {
+        "path": "/it/",
+        "title": "Viaggi e tour a Zanzibar in italiano | Zanzibar Vibe Tours",
+        "description": "Scopri Zanzibar con tour, soggiorni e assistenza in italiano. Esplora le nostre proposte a Matemwe e organizza il tuo viaggio con Zanzibar Vibe Tours."
+      },
+      "pl": {
+        "path": "/pl/",
+        "title": "Wakacje i wycieczki na Zanzibarze | Zanzibar Vibe Tours",
+        "description": "Odkryj Zanzibar z polskojęzyczną pomocą. Poznaj wycieczki, pobyty w Matemwe i zaplanuj podróż z Zanzibar Vibe Tours."
+      }
+    },
+    "tours": {
+      "it": {
+        "path": "/it/tour",
+        "title": "Tour e pacchetti a Zanzibar | Zanzibar Vibe Tours",
+        "description": "Esplora i tour e i pacchetti soggiorno a Zanzibar: itinerari, durata, prezzi e dettagli per scegliere la tua prossima esperienza sull'isola."
+      },
+      "pl": {
+        "path": "/pl/wycieczka",
+        "title": "Wycieczki i pakiety na Zanzibarze | Zanzibar Vibe Tours",
+        "description": "Porównaj wycieczki i pakiety pobytowe na Zanzibarze. Sprawdź programy, ceny, czas trwania i wybierz podróż dopasowaną do siebie."
+      }
+    },
+    "hotels": {
+      "it": {
+        "path": "/it/hotel",
+        "title": "Hotel e soggiorni a Matemwe, Zanzibar | Zanzibar Vibe Tours",
+        "description": "Scopri gli hotel e gli alloggi selezionati a Matemwe, Zanzibar. Confronta servizi, posizione e fotografie delle strutture."
+      },
+      "pl": {
+        "path": "/pl/hotel",
+        "title": "Hotele i noclegi w Matemwe na Zanzibarze | Zanzibar Vibe Tours",
+        "description": "Poznaj wybrane hotele i noclegi w Matemwe na Zanzibarze. Sprawdź lokalizację, udogodnienia i zdjęcia obiektów."
+      }
+    },
+    "gallery": {
+      "it": {
+        "path": "/it/galleria",
+        "title": "Foto e video di Zanzibar | Zanzibar Vibe Tours",
+        "description": "Guarda le foto e i video di Zanzibar: spiagge, escursioni, hotel e momenti di viaggio raccolti da Zanzibar Vibe Tours."
+      },
+      "pl": {
+        "path": "/pl/galeria",
+        "title": "Zdjęcia i filmy z Zanzibaru | Zanzibar Vibe Tours",
+        "description": "Zobacz zdjęcia i filmy z Zanzibaru: plaże, wycieczki, hotele i chwile z podróży z Zanzibar Vibe Tours."
+      }
+    },
+    "blog": {
+      "it": {
+        "path": "/it/blog",
+        "title": "Blog su Zanzibar: luoghi e consigli | Zanzibar Vibe Tours",
+        "description": "Leggi storie e consigli su Zanzibar: spiagge, cultura, maree, escursioni e luoghi da scoprire durante il viaggio."
+      },
+      "pl": {
+        "path": "/pl/blog",
+        "title": "Blog o Zanzibarze: miejsca i porady | Zanzibar Vibe Tours",
+        "description": "Czytaj o Zanzibarze: plażach, kulturze, przypływach, wycieczkach i miejscach, które warto odkryć podczas podróży."
+      }
+    },
+    "about": {
+      "it": {
+        "path": "/it/chi-siamo",
+        "title": "Chi siamo e perché amiamo Zanzibar | Zanzibar Vibe Tours",
+        "description": "Conosci la storia di Zanzibar Vibe Tours, la nostra passione per Matemwe e il modo in cui condividiamo l'isola con i viaggiatori."
+      },
+      "pl": {
+        "path": "/pl/o-nas",
+        "title": "O nas i naszej pasji do Zanzibaru | Zanzibar Vibe Tours",
+        "description": "Poznaj historię Zanzibar Vibe Tours, naszą pasję do Matemwe i sposób, w jaki pomagamy odkrywać wyspę."
+      }
+    }
+  }
+}

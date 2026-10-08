@@ -31,7 +31,7 @@
     "tour_id": "003",
     "img_title": "/images/tours/003/title.jpg",
     "imgs": "/images/tours/003/",
-    "info": "Pacchetto di 10 giorni per 2 persone in casa con camere doppie e bagno privato. Inclusi cena di Capodanno, transfer aeroportuale, assistenza per tutto il soggiorno e guida turistica.",
+    "info": "Pacchetto di 10 giorni per 2 persone in casa privata con camere doppie e bagno privato. Inclusi cena di Capodanno, transfer aeroportuale, assistenza per tutto il soggiorno e guida turistica.",
     "currency": "EUR",
     "price": 1500,
     "title": "Capodanno a Zanzibar per 2",
@@ -39,6 +39,20 @@
     "key_points": "Pacchetto di 10 giorni per 2 persone,4 camere doppie con bagno privato,Soggiorno cucina e balcone in comune,Cena di Capodanno inclusa,Transfer da/per l’aeroporto,Prison Island + Nakupenda — escursione di 1 giorno con frutta e pasto di pesce e frutti di mare sull’oceano,Stone Town + Spice Tour — escursione di mezza giornata,Delfini + Mnemba — escursione di mezza giornata,Nungwi Aquarium — escursione di mezza giornata",
     "duration": "10 giorni",
     "group": "2-8 persone",
+    "location": "Matemwe, Zanzibar, Tanzania"
+  },
+  {
+    "tour_id": "004",
+    "img_title": "/images/tours/004/title.jpg",
+    "imgs": "/images/tours/004/",
+    "info": "Soggiorno al Malik Villa Matemwe con camere dotate di bagno privato, aria condizionata e cucina attrezzata. La struttura offre ristorante, bar, giardino e servizi per il tempo libero. Transfer ed escursioni disponibili a pagamento.",
+    "currency": "EUR",
+    "price": 37,
+    "title": "Soggiorno a Malik Villa Matemwe",
+    "short_desc": "37 € a persona, pernottamento con colazione inclusa",
+    "key_points": "Piscina esterna,Wi-Fi gratuito,Parcheggio gratuito,Ristorante Malik Villa,La villa dispone di 5 bungalow per 2 persone con bagno privato,Un bungalow per 4 persone con cucina privata e bagno privato,Aria condizionata,Navetta aeroportuale a pagamento,Escursioni a scelta a pagamento",
+    "duration": "da 5 giorni",
+    "group": "1-11 persone",
     "location": "Matemwe, Zanzibar, Tanzania"
   }
 ]

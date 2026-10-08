@@ -31,7 +31,7 @@
     "tour_id": "003",
     "img_title": "/images/tours/003/title.jpg",
     "imgs": "/images/tours/003/",
-    "info": "10-dniowy pakiet dla 2 osób z zakwaterowaniem w domu z pokojami dwuosobowymi i prywatnymi łazienkami. W cenie kolacja sylwestrowa, transfer lotniskowy, opieka podczas całego pobytu oraz przewodnik.",
+    "info": "10-dniowy pakiet dla 2 osób z zakwaterowaniem w domu prywatnym z pokojami dwuosobowymi i prywatnymi łazienkami. W cenie kolacja sylwestrowa, transfer lotniskowy, opieka podczas całego pobytu oraz przewodnik.",
     "currency": "EUR",
     "price": 1500,
     "title": "Sylwester 2027 na Zanzibarze dla 2 osób",
@@ -39,6 +39,20 @@
     "key_points": "Pakiet 10-dniowy dla 2 osób,4 pokoje dwuosobowe z prywatnymi łazienkami,Wspólny salon kuchnia i balkon,Kolacja sylwestrowa w cenie,Transfer z/na lotnisko,Prison Island + Nakupenda — całodniowa wycieczka z owocami oraz posiłkiem z ryb i owoców morza nad oceanem,Stone Town + Spice Tour — wycieczka półdniowa,Delfiny + Mnemba — wycieczka półdniowa,Nungwi Aquarium — wycieczka półdniowa",
     "duration": "10 dni",
     "group": "2-8 osób",
+    "location": "Matemwe, Zanzibar, Tanzania"
+  },
+ {
+    "tour_id": "004",
+    "img_title": "/images/tours/004/title.jpg",
+    "imgs": "/images/tours/004/",
+    "info": "Pobyt w Malik Villa Matemwe z zakwaterowaniem w komfortowych pokojach z prywatnymi łazienkami i klimatyzacją. Na miejscu dostępne są restauracja, bar, ogród oraz atrakcje rekreacyjne. Transfer i wycieczki za dodatkową opłatą.",
+    "currency": "EUR",
+    "price": 37,
+    "title": "Pobyt w Malik Villa Matemwe",
+    "short_desc": "€ 37 na osobę, nocleg ze śniadaniem",
+    "key_points": "Basen zewnętrzny,Bezpłatne Wi-Fi,Darmowy parking,Restauracja Malik Villa,Willa ma 5 bungalow 2 osobowych z łazienkami prywatnymi,Jedno bungalo na 4 osoby z kuchnią prywatną i łazienką,Klimatyzacja,Transfer lotniskowy za dodatkową opłatą,Wycieczki do wyboru za dodatkową opłatą",
+    "duration": "od 5 dni",
+    "group": "1-11 osób",
     "location": "Matemwe, Zanzibar, Tanzania"
   }
 ]

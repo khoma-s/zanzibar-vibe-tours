@@ -1,11 +1,10 @@
 <!doctype html>
-<html lang="pl">
+<html lang="it">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zanzibar Vibe Tours — Scopri la magia di Zanzibar</title>
-    <meta name="description" content="Zanzibar Vibe Tours — Tour indimenticabili a Zanzibar. Scopri le nostre escursioni, hotel, galleria e blog. Prenota la tua avventura!" />
-    <meta name="keywords" content="Zanzibar, tours, hotel, viaggi, Tanzania, Stone Town, snorkeling, spiagge, wycieczka, hotele" />
+    <title>Viaggi e tour a Zanzibar in italiano | Zanzibar Vibe Tours</title>
+    <meta name="description" content="Scopri Zanzibar con tour, soggiorni e assistenza in italiano. Esplora le nostre proposte a Matemwe e organizza il tuo viaggio con Zanzibar Vibe Tours." />
     <meta name="author" content="Zanzibar Vibe Tours" />
     
     <!-- Language detection script - runs before React to set correct lang attribute -->
@@ -13,18 +12,15 @@
       (function() {
         var savedLang = localStorage.getItem('zv_lang');
         var browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-        var lang = savedLang || (browserLang.startsWith('it') ? 'it' : 'pl');
+        var pathLang = window.location.pathname.match(/^\/(it|pl)(?:\/|$)/);
+        var lang = pathLang ? pathLang[1] : (savedLang || (browserLang.startsWith('it') ? 'it' : 'pl'));
         document.documentElement.lang = lang;
-        // Force HTTPS redirect for SEO
-        if (window.location.protocol === 'http:' && window.location.hostname !== 'localhost') {
-          window.location.href = 'https:' + window.location.href.substring(5);
-        }
       })();
     </script>
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Zanzibar Vibe Tours" />
-    <meta property="og:description" content="Tour indimenticabili a Zanzibar. Scopri escursioni, hotel e molto altro." />
+    <meta property="og:title" content="Viaggi e tour a Zanzibar in italiano | Zanzibar Vibe Tours" />
+    <meta property="og:description" content="Scopri Zanzibar con tour, soggiorni e assistenza in italiano. Esplora le nostre proposte a Matemwe e organizza il tuo viaggio con Zanzibar Vibe Tours." />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="it_IT" />
     <meta property="og:locale:alternate" content="pl_PL" />
@@ -40,10 +36,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     
     <!-- Hreflang (will be updated dynamically by React) -->
-    <link rel="alternate" hreflang="it" href="https://zanzibarvibetours.com/it/" />
-    <link rel="alternate" hreflang="pl" href="https://zanzibarvibetours.com/pl/" />
-    <link rel="alternate" hreflang="x-default" href="https://zanzibarvibetours.com/it/" />
-    <link rel="canonical" href="https://zanzibarvibetours.com/it/" />
+    <link rel="alternate" hreflang="it" href="https://zanzibar-vibetours.eu/it/" />
+    <link rel="alternate" hreflang="pl" href="https://zanzibar-vibetours.eu/pl/" />
+    <link rel="alternate" hreflang="x-default" href="https://zanzibar-vibetours.eu/it/" />
+    <link rel="canonical" href="https://zanzibar-vibetours.eu/it/" />
     
     <style>
       html, body { margin: 0; padding: 0; width: 100%; height: 100%; }
@@ -69,19 +65,5 @@
     </div>
     <script type="module" src="/src/main.tsx"></script>
     
-    <!-- Matomo Tracking Code (placeholder — replace with actual domain/ID) -->
-    <script>
-      var _paq = window._paq = window._paq || [];
-      _paq.push(['trackPageView']);
-      _paq.push(['enableLinkTracking']);
-      (function() {
-        var u = "https://YOUR_MATOMO_DOMAIN.pl/"; // TODO: Replace with actual Matomo URL on vh.pl
-        _paq.push(['setTrackerUrl', u + 'matomo.php']);
-        _paq.push(['setSiteId', 'YOUR_SITE_ID']); // TODO: Replace with actual site ID
-        var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
-        g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
-      })();
-    </script>
-    <!-- End Matomo Code -->
   </body>
 </html>

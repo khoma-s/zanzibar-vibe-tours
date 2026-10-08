@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { SITE_ORIGIN } from '../utils/localizedRoutes';
 
 interface SchemaProps {
   type: 'Organization' | 'TouristTrip' | 'Hotel' | 'Article' | 'LocalBusiness';
@@ -39,9 +40,10 @@ export default function SchemaMarkup({ type, data }: SchemaProps) {
 
 // Predefined schemas for common use cases
 export const organizationSchema = {
+  '@id': `${SITE_ORIGIN}/#organization`,
   name: 'Zanzibar Vibe Tours',
-  url: 'https://zanzibarvibetours.com',
-  logo: 'https://zanzibarvibetours.com/images/logo.png',
+  url: SITE_ORIGIN,
+  logo: `${SITE_ORIGIN}/images/logo.png`,
   description: 'Tour operator specializzato in viaggi a Zanzibar per clienti italiani e polacchi.',
   address: {
     '@type': 'PostalAddress',
@@ -50,14 +52,15 @@ export const organizationSchema = {
   },
   contactPoint: {
     '@type': 'ContactPoint',
-    telephone: '+255-777-123-456',
+    telephone: '+39 347 584 9637',
     contactType: 'customer service',
-    email: 'info@zanzibarvibetours.com',
-    availableLanguage: ['Italian', 'Polish', 'English'],
+    email: 'kuzdra.violetta@gmail.com',
+    availableLanguage: ['Italian', 'Polish'],
   },
   sameAs: [
-    'https://www.facebook.com/zanzibarvibetours',
-    'https://www.instagram.com/zanzibarvibetours',
+    'https://www.facebook.com/1172238702643016',
+    'https://www.instagram.com/kuzdravioletta',
+    'https://www.tiktok.com/@violetta.kuzdra',
   ],
 };
 
@@ -70,26 +73,6 @@ export const touristTripSchema = (tour: {
   name: tour.name,
   description: tour.description,
   tourType: 'Sightseeing',
-  itinerary: {
-    '@type': 'ItemList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Pickup from hotel',
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Tour activity',
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: 'Return to hotel',
-      },
-    ],
-  },
   offers: {
     '@type': 'Offer',
     price: tour.price,
@@ -99,7 +82,7 @@ export const touristTripSchema = (tour: {
   provider: {
     '@type': 'Organization',
     name: 'Zanzibar Vibe Tours',
-    url: 'https://zanzibarvibetours.com',
+    url: SITE_ORIGIN,
   },
 });
 
@@ -116,20 +99,6 @@ export const hotelSchema = (hotel: {
     addressLocality: 'Zanzibar',
     addressCountry: 'TZ',
   },
-  starRating: {
-    '@type': 'Rating',
-    ratingValue: '4',
-  },
-  amenityFeature: [
-    {
-      '@type': 'LocationFeatureSpecification',
-      name: 'Free WiFi',
-    },
-    {
-      '@type': 'LocationFeatureSpecification',
-      name: 'Swimming Pool',
-    },
-  ],
 });
 
 export const articleSchema = (article: {
@@ -151,11 +120,11 @@ export const articleSchema = (article: {
     name: 'Zanzibar Vibe Tours',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://zanzibarvibetours.com/images/logo.png',
+      url: `${SITE_ORIGIN}/images/logo.png`,
     },
   },
   mainEntityOfPage: {
     '@type': 'WebPage',
-    '@id': 'https://zanzibarvibetours.com/blog',
+    '@id': `${SITE_ORIGIN}/it/blog`,
   },
 });

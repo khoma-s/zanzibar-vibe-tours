@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useLang } from '../context/LangContext';
 import Lightbox, { useLightbox } from '../components/Lightbox';
 import Loading from '../components/Loading';
+import NotFoundPage from './NotFoundPage';
 import { ArrowLeft, MapPin, Clock, Users, Filter } from 'lucide-react';
 
 // Import all tour images at build time (with error handling)
@@ -178,6 +179,7 @@ export function TourDetailPage() {
   const { lang, t } = useLang();
   const { tour_id } = useParams();
   const [tour, setTour] = useState<Tour | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
   const [whatsapp, setWhatsapp] = useState<string>('');
   const [tourImages, setTourImages] = useState<string[]>([]);
   const lightbox = useLightbox(tourImages);
@@ -196,25 +198,36 @@ export function TourDetailPage() {
   };
 
   useEffect(() => {
+    let active = true;
+    setIsLoading(true);
+    setTour(null);
+    setTourImages([]);
     fetch(`/data/${lang}/tours.json`)
-      .then(r => r.json())
+      .then(r => {
+        if (!r.ok) throw new Error(`Tours HTTP ${r.status}`);
+        return r.json();
+      })
       .then((data: Tour[]) => {
+        if (!active) return;
         const found = data.find(t => t.tour_id === tour_id);
         if (found) {
           setTour(found);
           setTourImages(getTourImages(found.imgs));
         }
       })
-      .catch(() => {});
+      .catch(() => {})
+      .finally(() => { if (active) setIsLoading(false); });
     
     fetch('/data/kontakts.json')
       .then(r => r.json())
       .then(data => setWhatsapp(data.whatsapp))
       .catch(() => {});
+    return () => { active = false; };
   }, [lang, tour_id]);
 
+  if (isLoading) return <Loading />;
   if (!tour) {
-    return <Loading />;
+    return <NotFoundPage />;
   }
 
   return (

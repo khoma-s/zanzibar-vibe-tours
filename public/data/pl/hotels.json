@@ -15,9 +15,16 @@
   },
   {
     "hotel_id": "hotel_03",
-    "name": "Dom Blisko Oceanu",
+    "name": "Dom Prywatny Blisko Oceanu",
     "imgs": "/images/hotels/hotel_03/",
-    "odescription": "Obiekt znajduje się na pierwszym piętrze i zapewnia praktyczne warunki dla osób preferujących niezależny pobyt. Wyżywienie nie jest wliczone w cenę, dzięki czemu goście mogą organizować posiłki we własnym zakresie. Obiekt nie posiada basenu.",
+    "odescription": "Obiekt znajduje się na pierwszym piętrze i zapewnia praktyczne warunki dla osób preferujących niezależny pobyt. Wyżywienie nie jest wliczone w cenę, dzięki czemu goście mogą organizować posiłki we własnym zakresie. W pobliżu znajduje się lokalny targ i małe sklepiki. Obiekt nie posiada basenu.",
     "key_points": "4 pokoje dwuosobowe z prywatnymi łazienkami,Wspólny salon  kuchnia i balkon,Blisko oceanu,Darmowe WiFi"
+  },
+ {
+    "hotel_id": "hotel_04",
+    "name": "Malik Villa Blisko Oceanu",
+    "imgs": "/images/hotels/hotel_04/",
+    "odescription": "Malik Villa Matemwe to wygodny hotel położony około 15 minut pieszo od centrum. Oferuje pokoje z prywatnymi łazienkami, klimatyzacją, patio i tarasem, a także w pełni wyposażony aneks kuchenny. Dostępne są transfery lotniskowe i wycieczki za dodatkową opłatą.",
+    "key_points": "Basen zewnętrzny,Bezpłatne Wi-Fi,Restauracja Malik Villa,Darmowy parking"
   }
 ]

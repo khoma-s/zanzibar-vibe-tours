@@ -21,10 +21,10 @@ function SmartRedirect() {
   return <Navigate to={`/${lang}/`} replace />;
 }
 
-function Layout({ children, seoTitle, seoDesc }: { children: React.ReactNode; seoTitle?: string; seoDesc?: string }) {
+function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen flex flex-col bg-cream">
-      <SEO title={seoTitle} description={seoDesc} />
+      <SEO />
       <ScrollToTop />
       <Header />
       <main className="flex-1">
@@ -54,22 +54,22 @@ function AppContent() {
 
       {/* Italian routes */}
       <Route path="/it/" element={<Layout><HomePage /></Layout>} />
-      <Route path="/it/tour" element={<Layout seoTitle="Tour"><ToursListPage /></Layout>} />
-      <Route path="/it/tour/:tour_id" element={<Layout seoTitle="Dettaglio Tour"><TourDetailPage /></Layout>} />
-      <Route path="/it/hotel" element={<Layout seoTitle="Hotel"><HotelsPage /></Layout>} />
-      <Route path="/it/galleria" element={<Layout seoTitle="Galleria"><GalleryPage /></Layout>} />
-      <Route path="/it/blog" element={<Layout seoTitle="Blog"><BlogPage /></Layout>} />
-      <Route path="/it/chi-siamo" element={<Layout seoTitle="Chi siamo"><AboutPage /></Layout>} />
+      <Route path="/it/tour" element={<Layout><ToursListPage /></Layout>} />
+      <Route path="/it/tour/:tour_id" element={<Layout><TourDetailPage /></Layout>} />
+      <Route path="/it/hotel" element={<Layout><HotelsPage /></Layout>} />
+      <Route path="/it/galleria" element={<Layout><GalleryPage /></Layout>} />
+      <Route path="/it/blog" element={<Layout><BlogPage /></Layout>} />
+      <Route path="/it/chi-siamo" element={<Layout><AboutPage /></Layout>} />
       <Route path="/it/404" element={<Layout><NotFoundPage /></Layout>} />
 
       {/* Polish routes */}
       <Route path="/pl/" element={<Layout><HomePage /></Layout>} />
-      <Route path="/pl/wycieczka" element={<Layout seoTitle="Wycieczka"><ToursListPage /></Layout>} />
-      <Route path="/pl/wycieczka/:tour_id" element={<Layout seoTitle="Szczegóły wycieczki"><TourDetailPage /></Layout>} />
-      <Route path="/pl/hotel" element={<Layout seoTitle="Hotel"><HotelsPage /></Layout>} />
-      <Route path="/pl/galeria" element={<Layout seoTitle="Galeria"><GalleryPage /></Layout>} />
-      <Route path="/pl/blog" element={<Layout seoTitle="Blog"><BlogPage /></Layout>} />
-      <Route path="/pl/o-nas" element={<Layout seoTitle="O nas"><AboutPage /></Layout>} />
+      <Route path="/pl/wycieczka" element={<Layout><ToursListPage /></Layout>} />
+      <Route path="/pl/wycieczka/:tour_id" element={<Layout><TourDetailPage /></Layout>} />
+      <Route path="/pl/hotel" element={<Layout><HotelsPage /></Layout>} />
+      <Route path="/pl/galeria" element={<Layout><GalleryPage /></Layout>} />
+      <Route path="/pl/blog" element={<Layout><BlogPage /></Layout>} />
+      <Route path="/pl/o-nas" element={<Layout><AboutPage /></Layout>} />
       <Route path="/pl/404" element={<Layout><NotFoundPage /></Layout>} />
 
       {/* Catch all */}
@@ -80,10 +80,10 @@ function AppContent() {
 
 export default function App() {
   return (
-    <LangProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <LangProvider>
         <AppContent />
-      </BrowserRouter>
-    </LangProvider>
+      </LangProvider>
+    </BrowserRouter>
   );
 }
