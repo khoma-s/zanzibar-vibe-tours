@@ -108,4 +108,16 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibar-vibetours.eu/pl/wycieczka/003" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://zanzibar-vibetours.eu/it/tour/003" />
   </url>
+  <url>
+    <loc>https://zanzibar-vibetours.eu/it/tour/004</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibar-vibetours.eu/it/tour/004" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibar-vibetours.eu/pl/wycieczka/004" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zanzibar-vibetours.eu/it/tour/004" />
+  </url>
+  <url>
+    <loc>https://zanzibar-vibetours.eu/pl/wycieczka/004</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://zanzibar-vibetours.eu/it/tour/004" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zanzibar-vibetours.eu/pl/wycieczka/004" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zanzibar-vibetours.eu/it/tour/004" />
+  </url>
 </urlset>

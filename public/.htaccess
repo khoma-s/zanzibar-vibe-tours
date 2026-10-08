@@ -43,6 +43,10 @@ ErrorDocument 404 /404.html
   RewriteRule ^it/tour/003/?$ /_pages/it-tour-003.html [L]
   RewriteRule ^pl/wycieczka/003/$ /pl/wycieczka/003 [R=301,L]
   RewriteRule ^pl/wycieczka/003/?$ /_pages/pl-tour-003.html [L]
+  RewriteRule ^it/tour/004/$ /it/tour/004 [R=301,L]
+  RewriteRule ^it/tour/004/?$ /_pages/it-tour-004.html [L]
+  RewriteRule ^pl/wycieczka/004/$ /pl/wycieczka/004 [R=301,L]
+  RewriteRule ^pl/wycieczka/004/?$ /_pages/pl-tour-004.html [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule ^ - [R=404,L]
