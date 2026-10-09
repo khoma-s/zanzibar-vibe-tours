@@ -1,28 +1,28 @@
-# Zanzibar Vibe Tours — Инструкция по загрузке файлов
+# Zanzibar Vibe Tours — Instrukcja wgrywania plików
 
-## 📸 Как загрузить логотип
+## 📸 Jak dodać logo
 
-1. Подготовьте файл логотипа в формате **PNG** (рекомендуется 512×512px)
-2. Сохраните файл как `logo.png`
-3. Поместите в папку: `public/images/logo.png`
-4. Логотип автоматически появится в Header и Footer
+1. Przygotuj plik logo w formacie **PNG** (zalecane 512×512 px)
+2. Zapisz plik jako `logo.png`
+3. Umieść go w folderze: `public/images/logo.png`
+4. Logo pojawi się automatycznie w nagłówku (Header) i stopce (Footer)
 
 ### Favicon
-- `public/images/favicon-32x32.png` — 32×32px
-- `public/images/favicon-16x16.png` — 16×16px  
-- `public/images/apple-touch-icon.png` — 180×180px
+- `public/images/favicon-32x32.png` — 32×32 px
+- `public/images/favicon-16x16.png` — 16×16 px  
+- `public/images/apple-touch-icon.png` — 180×180 px
 
 ---
 
-## 📁 Структура папок для изображений
+## 📁 Struktura folderów dla obrazów
 
 ```
 public/images/
-├── logo.png              # Логотип компании (512×512px)
+├── logo.png              # Logo firmy (512×512 px)
 ├── favicon-32x32.png     # Favicon 32×32
 ├── favicon-16x16.png     # Favicon 16×16
 ├── apple-touch-icon.png  # Apple touch icon 180×180
-├── about/                # Фото для страницы About (5 штук)
+├── about/                # Zdjęcia na stronę About (5 sztuk)
 │   ├── photo1.jpg
 │   ├── photo2.jpg
 │   ├── photo3.jpg
@@ -30,8 +30,8 @@ public/images/
 │   └── photo5.jpg
 ├── tours/
 │   ├── 001/
-│   │   ├── title.jpg     # Главное фото тура
-│   │   ├── 1.jpg         # Фото галереи
+│   │   ├── title.jpg     # Zdjęcie główne wycieczki
+│   │   ├── 1.jpg         # Zdjęcia do galerii
 │   │   ├── 2.jpg
 │   │   └── 3.jpg
 │   ├── 002/
@@ -39,7 +39,7 @@ public/images/
 │   └── ...
 ├── hotels/
 │   ├── hotel_01/
-│   │   ├── 1.jpg         # Первое фото = миниатюра
+│   │   ├── 1.jpg         # Pierwsze zdjęcie = miniatura
 │   │   ├── 2.jpg
 │   │   └── 3.jpg
 │   └── ...
@@ -48,43 +48,43 @@ public/images/
 │   ├── photo2.jpg
 │   └── ...
 └── vid/
-    └── video1.mp4        # Видео для галереи
+    └── video1.mp4        # Wideo do galerii
 ```
 
 ---
 
-## 📝 Редактирование JSON-файлов
+## 📝 Edycja plików JSON
 
-Все данные находятся в `public/data/{lang}/`:
+Wszystkie dane znajdują się w `public/data/{lang}/`:
 
-### Туры (`tours.json`)
+### Wycieczki (`tours.json`)
 ```json
 {
-  "tour_id": "001",           // Уникальный ID
-  "img_title": "/images/tours/001/title.jpg",  // Главное фото
-  "imgs": ["/images/tours/001/1.jpg", ...],    // Фото галереи
-  "info": "Полное описание...",
-  "title": "Название тура",
-  "short_desc": "Краткое описание",
-  "currency": "EUR",          // EUR для IT, PLN для PL
+  "tour_id": "001",           // Unikalny ID
+  "img_title": "/images/tours/001/title.jpg",  // Zdjęcie główne
+  "imgs": ["/images/tours/001/1.jpg", ...],    // Zdjęcia do galerii
+  "info": "Pełny opis...",
+  "title": "Nazwa wycieczki",
+  "short_desc": "Krótki opis",
+  "currency": "EUR",          // EUR dla IT, PLN dla PL
   "price": 1500
 }
 ```
 
-### Отели (`hotels.json`)
+### Hotele (`hotels.json`)
 ```json
 {
   "hotel_id": "hotel_01",
-  "name": "Название отеля",
+  "name": "Nazwa hotelu",
   "imgs": ["/images/hotels/hotel_01/1.jpg", ...],
-  "odescription": "Описание отеля..."
+  "odescription": "Opis hotelu..."
 }
 ```
 
 ### About (`about.json`)
 ```json
 {
-  "history": "История компании...",
+  "history": "Historia firmy...",
   "email": "info@example.com",
   "phone": "+255 777 123 456",
   "about_photos_path": "/images/about/",
@@ -98,7 +98,7 @@ public/images/
 }
 ```
 
-### Галерея (`gallery.json`)
+### Galeria (`gallery.json`)
 ```json
 {
   "albumsEnabled": false,
@@ -108,56 +108,56 @@ public/images/
 }
 ```
 
-### Блог (`posts.json`)
+### Blog (`posts.json`)
 ```json
 {
   "post_id": "001",
-  "title": "Заголовок поста",
-  "text": "Полный текст поста..."
+  "title": "Tytuł wpisu",
+  "text": "Pełny tekst wpisu..."
 }
 ```
 
 ---
 
-## 🎨 Цветовая палитра
+## 🎨 Paleta kolorów
 
-| Роль | HEX | Использование |
-|------|-----|---------------|
-| Navy (основной) | #1B3A5F | Header, footer, основной текст |
-| Teal (акцент) | #2AAFB5 | Ссылки, кнопки, акценты |
-| Orange (вторичный) | #F5A623 | CTA, hover, цены |
-| Cream (фон) | #FBF3D5 | Основной фон страниц |
-| Red (важное) | #E63946 | Предупреждения, важное |
-| White | #FFFFFF | Текст на тёмном фоне |
+| Rola | HEX | Zastosowanie |
+|------|-----|--------------|
+| Navy (główny) | #1B3A5F | Header, footer, tekst podstawowy |
+| Teal (akcent) | #2AAFB5 | Linki, przyciski, akcenty |
+| Orange (dodatkowy) | #F5A623 | CTA, hover, ceny |
+| Cream (tło) | #FBF3D5 | Główne tło stron |
+| Red (ważne) | #E63946 | Ostrzeżenia, ważne informacje |
+| White | #FFFFFF | Tekst na ciemnym tle |
 
 ---
 
-## 🌐 Slug'и (URL)
+## 🌐 Slugi (URL)
 
-| Страница | IT | PL |
-|----------|----|----|
-| Главная | /it/ | /pl/ |
-| Туры | /it/tour | /pl/wycieczka |
-| Детальная тура | /it/tour/{id} | /pl/wycieczka/{id} |
-| Отели | /it/hotel | /pl/hotel |
-| Галерея | /it/galleria | /pl/galeria |
-| Блог | /it/blog | /pl/blog |
-| About | /it/chi-siamo | /pl/o-nas |
+| Strona | IT | PL |
+|--------|----|----|
+| Strona główna | /it/ | /pl/ |
+| Wycieczki | /it/tour | /pl/wycieczka |
+| Szczegóły wycieczki | /it/tour/{id} | /pl/wycieczka/{id} |
+| Hotele | /it/hotel | /pl/hotel |
+| Galeria | /it/galleria | /pl/galeria |
+| Blog | /it/blog | /pl/blog |
+| About (O nas) | /it/chi-siamo | /pl/o-nas |
 
 ---
 
 ## 🔧 SEO
 
-- `robots.txt` — в корне сайта
-- `sitemap.xml` — в корне сайта с hreflang тегами
-- Meta-теги обновляются динамически через компонент SEO
-- Matomo analytics — подключён в index.html (замените YOUR_MATOMO_DOMAIN и YOUR_SITE_ID)
+- `robots.txt` — w katalogu głównym witryny
+- `sitemap.xml` — w katalogu głównym witryny, z tagami hreflang
+- Meta tagi są aktualizowane dynamicznie przez komponent SEO
+- Matomo analytics — podłączona w index.html (zamień YOUR_MATOMO_DOMAIN i YOUR_SITE_ID)
 
 ---
 
-## 🚀 Деплой
+## 🚀 Wdrożenie
 
-1. Запустите `npm run build`
-2. Скопируйте содержимое `dist/` на сервер vh.pl
-3. Убедитесь, что все изображения загружены в `public/images/`
-4. Проверьте работу Matomo (замените placeholder в index.html)
+1. Uruchom `npm run build`
+2. Skopiuj zawartość `dist/` na serwer vh.pl
+3. Upewnij się, że wszystkie obrazy zostały wgrane do `public/images/`
+4. Sprawdź działanie Matomo (zamień placeholder w index.html)
